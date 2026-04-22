@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แบบทดสอบใบขับขี่จักรยานยนต์ • 50 ข้อ</title>
+<title>แบบทดสอบใบขับขี่รถยนต์ • สุ่มข้อสอบทุกรอบ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -19,11 +19,8 @@
     --line: #1a1a1a;
     --muted: #6b6b6b;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'IBM Plex Sans Thai', 'Bai Jamjuree', sans-serif;
     background: var(--bg);
@@ -34,8 +31,6 @@
       radial-gradient(circle at 80% 90%, rgba(45, 122, 75, 0.04) 0%, transparent 40%);
     padding: 2rem 1rem 4rem;
   }
-
-  /* Subtle grain overlay */
   body::before {
     content: "";
     position: fixed;
@@ -45,421 +40,225 @@
     z-index: 1;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* ===== HEADER ===== */
+  .container { max-width: 780px; margin: 0 auto; position: relative; z-index: 2; }
   .header {
-    border: 2px solid var(--line);
-    background: var(--paper);
-    padding: 2rem 1.75rem 1.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
+    border: 2px solid var(--line); background: var(--paper);
+    padding: 2rem 1.75rem 1.5rem; margin-bottom: 1.5rem; position: relative;
     box-shadow: 6px 6px 0 var(--line);
   }
-
   .header::before {
     content: "DLT • กรมการขนส่งทางบก";
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    background: var(--bg);
-    padding: 0 10px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
+    position: absolute; top: -10px; left: 20px; background: var(--bg);
+    padding: 0 10px; font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted);
   }
-
   .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 1rem; font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em;
   }
-
   .header h1 {
-    font-family: 'Bai Jamjuree', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.4rem;
+    font-family: 'Bai Jamjuree', sans-serif; font-weight: 700;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 0.4rem;
   }
-
-  .header h1 .accent {
-    color: var(--accent);
-  }
-
-  .header .subtitle {
-    font-size: 0.95rem;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
+  .header h1 .accent { color: var(--accent); }
+  .header .subtitle { font-size: 0.95rem; color: var(--muted); font-weight: 400; }
   .header-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 1.25rem;
-    border-top: 1px solid var(--line);
-    padding-top: 1rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 1.25rem; border-top: 1px solid var(--line); padding-top: 1rem;
   }
-
-  .stat {
-    text-align: center;
-    border-right: 1px solid rgba(0,0,0,0.15);
-    padding: 0.25rem 0;
-  }
-
+  .stat { text-align: center; border-right: 1px solid rgba(0,0,0,0.15); padding: 0.25rem 0; }
   .stat:last-child { border-right: none; }
-
-  .stat-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.4rem;
-    font-weight: 700;
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
-  /* ===== PROGRESS ===== */
+  .stat-num { font-family: 'Space Mono', monospace; font-size: 1.4rem; font-weight: 700; display: block; }
+  .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
   .progress-wrap {
-    margin-bottom: 1.5rem;
-    background: var(--paper);
-    border: 2px solid var(--line);
-    padding: 0.5rem;
-    box-shadow: 4px 4px 0 var(--line);
+    margin-bottom: 1.5rem; background: var(--paper); border: 2px solid var(--line);
+    padding: 0.5rem; box-shadow: 4px 4px 0 var(--line);
   }
-
-  .progress-bar {
-    height: 8px;
-    background: #e8e3d8;
-    overflow: hidden;
-    position: relative;
-  }
-
+  .progress-bar { height: 8px; background: #e8e3d8; overflow: hidden; position: relative; }
   .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
+    height: 100%; background: var(--accent); width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;
   }
-
   .progress-fill::after {
-    content: "";
-    position: absolute;
-    inset: 0;
+    content: ""; position: absolute; inset: 0;
     background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.2) 4px, rgba(255,255,255,0.2) 8px);
   }
-
-  /* ===== QUESTION CARD ===== */
-  .quiz-container {
-    background: var(--paper);
-    border: 2px solid var(--line);
-    padding: 2rem 1.75rem;
-    box-shadow: 6px 6px 0 var(--line);
-    min-height: 400px;
+  .start-screen {
+    background: var(--paper); border: 2px solid var(--line);
+    padding: 3rem 2rem; box-shadow: 6px 6px 0 var(--line); text-align: center;
   }
-
+  .start-screen h2 { font-family: 'Bai Jamjuree', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; }
+  .start-info {
+    background: var(--bg); border: 1.5px solid var(--line);
+    padding: 1.25rem; margin: 1.5rem 0; text-align: left;
+    font-size: 0.95rem; line-height: 1.7;
+  }
+  .start-info ul { padding-left: 1.25rem; }
+  .start-info li { margin-bottom: 0.25rem; }
+  .start-info strong { color: var(--accent); font-family: 'Space Mono', monospace; }
+  .quiz-container {
+    background: var(--paper); border: 2px solid var(--line);
+    padding: 2rem 1.75rem; box-shadow: 6px 6px 0 var(--line);
+    min-height: 400px; display: none;
+  }
+  .quiz-container.active { display: block; }
   .q-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1.25rem; padding-bottom: 1rem;
     border-bottom: 1px dashed rgba(0,0,0,0.2);
   }
-
-  .q-number {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    color: var(--muted);
-  }
-
-  .q-number strong {
-    color: var(--accent);
-    font-size: 1.1rem;
-  }
-
+  .q-number { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .q-number strong { color: var(--accent); font-size: 1.1rem; }
   .q-category {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--line);
-    background: var(--bg);
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); background: var(--bg);
   }
-
   .question-text {
-    font-size: 1.15rem;
-    font-weight: 500;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: var(--ink);
+    font-size: 1.15rem; font-weight: 500; line-height: 1.6;
+    margin-bottom: 1rem; color: var(--ink);
   }
-
-  /* ===== CHOICES ===== */
-  .choices {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+  .sign-display {
+    display: flex; justify-content: center; align-items: center;
+    padding: 1.5rem; background: var(--bg); border: 1.5px solid var(--line);
+    margin: 1rem 0 1.5rem; min-height: 160px;
   }
-
+  .sign-display svg { max-width: 140px; height: auto; }
+  .choices { display: flex; flex-direction: column; gap: 0.6rem; }
   .choice {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-    padding: 0.9rem 1rem;
-    background: var(--bg);
-    border: 1.5px solid var(--line);
-    cursor: pointer;
-    transition: all 0.15s ease;
-    text-align: left;
-    font-family: inherit;
-    font-size: 1rem;
-    color: var(--ink);
-    line-height: 1.5;
-    width: 100%;
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    padding: 0.9rem 1rem; background: var(--bg); border: 1.5px solid var(--line);
+    cursor: pointer; transition: all 0.15s ease; text-align: left;
+    font-family: inherit; font-size: 1rem; color: var(--ink);
+    line-height: 1.5; width: 100%;
   }
-
   .choice:hover:not(:disabled) {
-    background: var(--paper);
-    transform: translateX(3px);
+    background: var(--paper); transform: translateX(3px);
     box-shadow: -3px 0 0 var(--accent);
   }
-
   .choice:disabled { cursor: default; }
-
   .choice-letter {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border: 1.5px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Space Mono', monospace;
-    font-weight: 700;
-    font-size: 0.85rem;
-    background: var(--paper);
+    flex-shrink: 0; width: 28px; height: 28px; border: 1.5px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace; font-weight: 700;
+    font-size: 0.85rem; background: var(--paper);
   }
-
   .choice-text { flex: 1; padding-top: 2px; }
-
-  /* States */
   .choice.correct {
-    background: rgba(45, 122, 75, 0.12);
-    border-color: var(--green);
-    border-width: 2px;
+    background: rgba(45, 122, 75, 0.12); border-color: var(--green); border-width: 2px;
   }
-  .choice.correct .choice-letter {
-    background: var(--green);
-    color: white;
-    border-color: var(--green);
-  }
-
+  .choice.correct .choice-letter { background: var(--green); color: white; border-color: var(--green); }
   .choice.wrong {
-    background: rgba(214, 48, 39, 0.1);
-    border-color: var(--accent);
-    border-width: 2px;
+    background: rgba(214, 48, 39, 0.1); border-color: var(--accent); border-width: 2px;
   }
-  .choice.wrong .choice-letter {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-  }
-
+  .choice.wrong .choice-letter { background: var(--accent); color: white; border-color: var(--accent); }
   .choice.dimmed { opacity: 0.5; }
-
-  /* ===== EXPLANATION ===== */
   .explanation {
-    margin-top: 1.25rem;
-    padding: 1rem 1.1rem;
-    background: var(--bg);
-    border-left: 4px solid var(--amber);
-    font-size: 0.95rem;
-    line-height: 1.55;
-    animation: slideIn 0.3s ease;
+    margin-top: 1.25rem; padding: 1rem 1.1rem; background: var(--bg);
+    border-left: 4px solid var(--amber); font-size: 0.95rem;
+    line-height: 1.55; animation: slideIn 0.3s ease;
   }
-
   .explanation strong {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber);
-    display: block;
-    margin-bottom: 0.4rem;
+    font-family: 'Space Mono', monospace; font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber);
+    display: block; margin-bottom: 0.4rem;
   }
-
   @keyframes slideIn {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  /* ===== CONTROLS ===== */
   .controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
+    display: flex; justify-content: space-between; gap: 0.75rem;
+    margin-top: 1.5rem; padding-top: 1.25rem;
     border-top: 1px dashed rgba(0,0,0,0.2);
   }
-
   .btn {
-    padding: 0.75rem 1.5rem;
-    font-family: 'Bai Jamjuree', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: 2px solid var(--line);
-    background: var(--paper);
-    cursor: pointer;
-    transition: all 0.15s;
+    padding: 0.75rem 1.5rem; font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600; font-size: 0.95rem; border: 2px solid var(--line);
+    background: var(--paper); cursor: pointer; transition: all 0.15s;
     letter-spacing: 0.02em;
   }
-
   .btn:hover:not(:disabled) {
-    background: var(--ink);
-    color: var(--paper);
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 var(--accent);
+    background: var(--ink); color: var(--paper);
+    transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--accent);
   }
-
-  .btn:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
-
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-primary { background: var(--accent); color: white; }
   .btn-primary:hover:not(:disabled) {
-    background: var(--accent-dark);
-    color: white;
-    box-shadow: 4px 4px 0 var(--line);
+    background: var(--accent-dark); color: white; box-shadow: 4px 4px 0 var(--line);
   }
-
-  /* ===== RESULTS ===== */
+  .btn-big { padding: 1rem 2.5rem; font-size: 1.1rem; width: 100%; margin-top: 1rem; }
   .results {
-    display: none;
-    text-align: center;
-    padding: 2rem 1rem 1rem;
+    display: none; background: var(--paper); border: 2px solid var(--line);
+    padding: 2rem 1.75rem; box-shadow: 6px 6px 0 var(--line); text-align: center;
   }
-
   .results.active { display: block; animation: fadeIn 0.5s ease; }
-
   @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.96); }
     to { opacity: 1; transform: scale(1); }
   }
-
   .result-badge {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    background: var(--ink);
-    color: var(--paper);
-    margin-bottom: 1rem;
+    display: inline-block; padding: 0.4rem 1rem;
+    font-family: 'Space Mono', monospace; font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: var(--ink); color: var(--paper); margin-bottom: 1rem;
   }
-
   .result-score {
-    font-family: 'Bai Jamjuree', sans-serif;
-    font-size: clamp(3.5rem, 10vw, 5rem);
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 0.25rem;
+    font-family: 'Bai Jamjuree', sans-serif; font-size: clamp(3.5rem, 10vw, 5rem);
+    font-weight: 700; line-height: 1; margin-bottom: 0.25rem;
   }
-
   .result-fraction {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
+    font-family: 'Space Mono', monospace; font-size: 1.1rem;
+    color: var(--muted); margin-bottom: 1rem;
   }
-
   .result-status {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    border: 2px solid var(--line);
+    font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem;
+    padding: 0.75rem; border: 2px solid var(--line);
   }
-
   .result-status.pass { background: rgba(45, 122, 75, 0.15); color: var(--green); }
   .result-status.fail { background: rgba(214, 48, 39, 0.1); color: var(--accent); }
-
-  .result-breakdown {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .breakdown-item {
-    padding: 1rem;
-    border: 1.5px solid var(--line);
-    background: var(--bg);
-  }
-
-  .breakdown-item .num {
-    font-family: 'Space Mono', monospace;
-    font-size: 2rem;
-    font-weight: 700;
-    display: block;
-  }
-
-  .breakdown-item .label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
+  .result-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .breakdown-item { padding: 1rem; border: 1.5px solid var(--line); background: var(--bg); }
+  .breakdown-item .num { font-family: 'Space Mono', monospace; font-size: 2rem; font-weight: 700; display: block; }
+  .breakdown-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
   .breakdown-item.correct .num { color: var(--green); }
   .breakdown-item.wrong .num { color: var(--accent); }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    text-align: center;
-    margin-top: 2rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
+  .review-btn {
+    margin-top: 0.75rem; padding: 0.6rem 1rem; background: transparent;
+    border: 1.5px solid var(--line); cursor: pointer;
+    font-family: inherit; font-size: 0.9rem; width: 100%;
   }
-
-  /* Mobile */
+  .review-btn:hover { background: var(--ink); color: var(--paper); }
+  .review-list { text-align: left; margin-top: 1rem; display: none; }
+  .review-list.show { display: block; }
+  .review-item {
+    padding: 1rem; border: 1.5px solid var(--line); margin-bottom: 0.6rem;
+    background: var(--bg); font-size: 0.9rem; border-left: 4px solid var(--accent);
+  }
+  .review-item .q-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.25rem; }
+  .review-item .q-txt { font-weight: 500; margin-bottom: 0.5rem; line-height: 1.4; }
+  .review-item .sign-mini { display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0; }
+  .review-item .sign-mini svg { width: 50px; height: 50px; }
+  .review-item .your-ans, .review-item .right-ans {
+    font-size: 0.85rem; padding: 0.4rem 0.6rem; margin-top: 0.25rem; border-radius: 2px;
+  }
+  .review-item .your-ans { background: rgba(214, 48, 39, 0.08); }
+  .review-item .right-ans { background: rgba(45, 122, 75, 0.08); }
+  .footer {
+    text-align: center; margin-top: 2rem;
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.05em;
+  }
   @media (max-width: 520px) {
     body { padding: 1rem 0.75rem 3rem; }
-    .header, .quiz-container { padding: 1.5rem 1.1rem; box-shadow: 4px 4px 0 var(--line); }
+    .header, .quiz-container, .start-screen, .results { padding: 1.5rem 1.1rem; box-shadow: 4px 4px 0 var(--line); }
     .question-text { font-size: 1.05rem; }
     .choice { padding: 0.75rem 0.85rem; font-size: 0.95rem; }
     .controls { flex-direction: column-reverse; }
     .controls .btn { width: 100%; }
     .result-breakdown { grid-template-columns: 1fr; }
+    .sign-display svg { max-width: 110px; }
   }
 </style>
 </head>
@@ -467,486 +266,308 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="header-top">
-      <span>FORM № 05-MC/50</span>
-      <span>ประเภท: รถจักรยานยนต์</span>
+      <span>FORM № 05-CAR/50</span>
+      <span>ประเภท: รถยนต์</span>
     </div>
-    <h1>แบบทดสอบ<br><span class="accent">ใบขับขี่รถจักรยานยนต์</span></h1>
-    <p class="subtitle">เลือกคำตอบที่ถูกต้องที่สุด • เกณฑ์ผ่าน 90% (45/50 ข้อ)</p>
+    <h1>แบบทดสอบ<br><span class="accent">ใบขับขี่รถยนต์</span></h1>
+    <p class="subtitle">สุ่มข้อสอบ 50 ข้อ • มีรูปป้ายจริง • เกณฑ์ผ่าน 90%</p>
     <div class="header-stats">
-      <div class="stat">
-        <span class="stat-num">50</span>
-        <span class="stat-label">ข้อ</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">90%</span>
-        <span class="stat-label">เกณฑ์ผ่าน</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">4</span>
-        <span class="stat-label">ตัวเลือก</span>
-      </div>
+      <div class="stat"><span class="stat-num">50</span><span class="stat-label">ข้อ</span></div>
+      <div class="stat"><span class="stat-num">90%</span><span class="stat-label">เกณฑ์ผ่าน</span></div>
+      <div class="stat"><span class="stat-num">🎲</span><span class="stat-label">สุ่มทุกรอบ</span></div>
     </div>
   </div>
 
-  <!-- PROGRESS -->
-  <div class="progress-wrap">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
+  <div class="start-screen" id="startScreen">
+    <h2>🚗 พร้อมทดสอบหรือยัง?</h2>
+    <p style="color: var(--muted); margin-bottom: 0.5rem;">
+      อ้างอิงคู่มืออบรมใบขับขี่รถยนต์ • กรมการขนส่งทางบก (2566)
+    </p>
+    <div class="start-info">
+      <strong>วิธีใช้</strong>
+      <ul>
+        <li>สุ่มมา <strong>50 ข้อ</strong> จากคลัง 80+ ข้อ</li>
+        <li>ข้อเกี่ยวกับป้ายจราจร <strong>แสดงรูปป้ายจริง</strong></li>
+        <li>ตัวเลือก <strong>ก/ข/ค/ง</strong> สุ่มตำแหน่งทุกครั้ง</li>
+        <li>คลิกคำตอบ → ได้เฉลย + คำอธิบายทันที</li>
+        <li>ผ่านเมื่อถูก <strong>45 ข้อขึ้นไป</strong> (90%)</li>
+      </ul>
     </div>
+    <button class="btn btn-primary btn-big" onclick="startQuiz()">เริ่มทดสอบ →</button>
   </div>
 
-  <!-- QUIZ -->
+  <div class="progress-wrap" id="progressWrap" style="display: none;">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
   <div class="quiz-container" id="quizContainer">
     <div id="questionArea"></div>
-
     <div class="controls">
       <button class="btn" id="prevBtn" onclick="prevQuestion()">← ก่อนหน้า</button>
       <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">ข้อถัดไป →</button>
     </div>
   </div>
 
-  <!-- RESULTS -->
-  <div class="quiz-container results" id="resultsArea">
+  <div class="results" id="resultsArea">
     <span class="result-badge">ผลการทดสอบ</span>
     <div class="result-score" id="scorePercent">0%</div>
     <div class="result-fraction" id="scoreFraction">0 / 50</div>
     <div class="result-status" id="resultStatus"></div>
-
     <div class="result-breakdown">
-      <div class="breakdown-item correct">
-        <span class="num" id="correctCount">0</span>
-        <span class="label">ตอบถูก</span>
-      </div>
-      <div class="breakdown-item wrong">
-        <span class="num" id="wrongCount">0</span>
-        <span class="label">ตอบผิด</span>
-      </div>
+      <div class="breakdown-item correct"><span class="num" id="correctCount">0</span><span class="label">ตอบถูก</span></div>
+      <div class="breakdown-item wrong"><span class="num" id="wrongCount">0</span><span class="label">ตอบผิด</span></div>
     </div>
-
-    <button class="btn btn-primary" onclick="restart()" style="width: 100%;">เริ่มทดสอบใหม่</button>
+    <button class="btn review-btn" onclick="toggleReview()" id="reviewBtn">📋 ดูรายการข้อที่ตอบผิด</button>
+    <div class="review-list" id="reviewList"></div>
+    <button class="btn btn-primary btn-big" onclick="restart()" style="margin-top: 1rem;">🎲 สุ่มข้อใหม่ เริ่มอีกรอบ</button>
   </div>
 
-  <div class="footer">
-    อ้างอิงหลักสูตรกรมการขนส่งทางบก • สำหรับฝึกฝนเท่านั้น
-  </div>
+  <div class="footer">อ้างอิงคู่มือกรมการขนส่งทางบก พ.ศ. 2566 • สำหรับฝึกฝนเท่านั้น</div>
 </div>
 
 <script>
 // ========================================
-// 50 QUESTIONS - ใบขับขี่จักรยานยนต์
+// SVG TRAFFIC SIGNS (vector - crisp at any size)
 // ========================================
-const questions = [
-  // === หมวด 1: กฎจราจร ===
-  {
-    q: "ผู้ขับขี่รถจักรยานยนต์ต้องมีอายุตามกฎหมายเท่าใด?",
-    choices: ["15 ปีบริบูรณ์ สำหรับรถจักรยานยนต์ไม่เกิน 110 ซีซี", "17 ปีบริบูรณ์ สำหรับรถจักรยานยนต์ทุกประเภท", "18 ปีบริบูรณ์ทุกกรณี", "อายุ 20 ปีบริบูรณ์"],
-    answer: 0,
-    cat: "กฎหมาย",
-    explain: "รถจักรยานยนต์ส่วนบุคคล: 15 ปีบริบูรณ์ขึ้นไป (ไม่เกิน 110 ซีซี) และ 18 ปีบริบูรณ์สำหรับรถเกิน 110 ซีซี"
-  },
-  {
-    q: "สัญญาณไฟจราจรสีเหลืองหมายถึงอะไร?",
-    choices: ["ให้หยุดทันที", "ให้เตรียมหยุด เว้นแต่ได้เลยเส้นหยุดไปแล้ว", "ให้ขับต่อไปได้", "ให้ขับด้วยความระมัดระวังเป็นพิเศษ"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "ไฟเหลือง = เตรียมหยุดก่อนถึงเส้นหยุด แต่ถ้าเลยเส้นหยุดไปแล้วให้ขับผ่านไปได้อย่างระมัดระวัง"
-  },
-  {
-    q: "เมื่อเจอสัญญาณไฟแดง ผู้ขับขี่ต้องทำอย่างไร?",
-    choices: ["หยุดรถหลังเส้นหยุด", "ชะลอแล้วเลี้ยวซ้ายได้ทันที", "หยุดเฉพาะเมื่อมีรถสวน", "ขับช้าๆ ผ่านไปได้"],
-    answer: 0,
-    cat: "กฎจราจร",
-    explain: "ไฟแดงต้องหยุดหลังเส้นหยุดเสมอ การเลี้ยวซ้ายผ่านแดงทำได้เฉพาะเมื่อมีป้าย 'เลี้ยวซ้ายผ่านตลอด' เท่านั้น"
-  },
-  {
-    q: "การขับขี่รถจักรยานยนต์บนทางหลวง ผู้ขับและผู้โดยสารต้องทำอย่างไร?",
-    choices: ["สวมหมวกนิรภัยทั้งผู้ขับและผู้โดยสาร", "สวมหมวกเฉพาะผู้ขับขี่", "สวมหมวกเฉพาะตอนขับทางไกล", "ไม่บังคับหากขับช้า"],
-    answer: 0,
-    cat: "กฎหมาย",
-    explain: "กฎหมายบังคับให้ทั้งผู้ขับและผู้ซ้อนท้ายต้องสวมหมวกนิรภัยที่ได้มาตรฐาน มอก. ตลอดเวลา"
-  },
-  {
-    q: "ความเร็วสูงสุดของรถจักรยานยนต์ในเขตเมืองตามกฎหมาย?",
-    choices: ["60 กม./ชม.", "80 กม./ชม.", "90 กม./ชม.", "100 กม./ชม."],
-    answer: 0,
-    cat: "กฎจราจร",
-    explain: "ในเขตเทศบาล/กรุงเทพฯ จำกัดความเร็วรถจักรยานยนต์ไม่เกิน 80 กม./ชม. แต่ถนนในเมืองทั่วไปมักจำกัดที่ 60 กม./ชม. ตามป้าย"
-  },
-  {
-    q: "ผู้ขับขี่ที่ดื่มสุราแล้วขับขี่ มีปริมาณแอลกอฮอล์ในเลือดเกินเท่าใดถือว่าเมาแล้วขับ?",
-    choices: ["20 มก.%", "50 มก.%", "80 มก.%", "100 มก.%"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "เกิน 50 มก.% ถือว่าเมาแล้วขับ (สำหรับผู้ขับขี่ทั่วไป) กรณีผู้ขับขี่ใหม่หรืออายุต่ำกว่า 20 ปี เกณฑ์คือ 20 มก.%"
-  },
-  {
-    q: "เมื่อเจอป้าย 'หยุด' (STOP) ต้องปฏิบัติอย่างไร?",
-    choices: ["ชะลอความเร็วก่อนผ่าน", "หยุดรถก่อนเส้น แล้วจึงเคลื่อนเมื่อปลอดภัย", "หยุดเฉพาะเมื่อมีรถข้าม", "แตะเบรกเบาๆ แล้วผ่านไป"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "ป้ายหยุดต้องหยุดรถให้สนิทก่อนเส้นหยุด มองดูความปลอดภัยรอบด้าน แล้วจึงเคลื่อนต่อได้"
-  },
-  {
-    q: "การใช้โทรศัพท์มือถือขณะขับขี่รถจักรยานยนต์ทำได้เมื่อใด?",
-    choices: ["ทำได้ทุกกรณี", "ทำได้เฉพาะรับสายสั้นๆ", "ทำได้เฉพาะใช้บลูทูธหรือแฮนด์ฟรี", "ห้ามโดยเด็ดขาดทุกกรณี"],
-    answer: 2,
-    cat: "กฎหมาย",
-    explain: "ห้ามถือโทรศัพท์ขับขี่ ใช้ได้เฉพาะอุปกรณ์แฮนด์ฟรีหรือบลูทูธ ผู้ฝ่าฝืนปรับ 400-1,000 บาท"
-  },
-  {
-    q: "เส้นทึบสีขาวกลางถนนหมายถึงอะไร?",
-    choices: ["แซงได้ทั้งสองฝั่ง", "ห้ามแซงหรือคร่อมเส้น", "แซงได้ฝั่งซ้ายเท่านั้น", "เป็นเส้นแบ่งช่องจราจรทั่วไป"],
-    answer: 1,
-    cat: "เครื่องหมายจราจร",
-    explain: "เส้นทึบ (ทั้งเหลืองและขาว) ห้ามแซงและห้ามคร่อม เส้นประเท่านั้นที่แซงหรือเปลี่ยนช่องได้"
-  },
-  {
-    q: "การให้สัญญาณไฟเลี้ยวต้องเปิดก่อนเลี้ยวเท่าใด?",
-    choices: ["10 เมตร", "30 เมตร", "50 เมตร", "ไม่ต้องเปิด"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "ต้องให้สัญญาณไฟเลี้ยวก่อนถึงจุดเลี้ยวอย่างน้อย 30 เมตร เพื่อให้รถคันหลังและรถสวนเห็นชัดเจน"
-  },
+const SIGNS = {
+  stop: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#d62828" stroke="#fff" stroke-width="3"/><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="none" stroke="#8b1a1a" stroke-width="2"/><text x="50" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="22" fill="#fff">หยุด</text></svg>`,
 
-  // === หมวด 2: ป้ายจราจร ===
-  {
-    q: "ป้ายจราจรพื้นสีแดง ขอบขาว รูปวงกลม หมายถึงอะไร?",
-    choices: ["ป้ายเตือน", "ป้ายบังคับ (ห้าม)", "ป้ายแนะนำ", "ป้ายบอกทาง"],
-    answer: 1,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายวงกลมสีแดงเป็นป้ายบังคับประเภท 'ห้าม' เช่น ห้ามเข้า ห้ามเลี้ยว ห้ามจอด ห้ามแซง"
-  },
-  {
-    q: "ป้ายสีเหลือง รูปสี่เหลี่ยมข้าวหลามตัด หมายถึงอะไร?",
-    choices: ["ป้ายห้าม", "ป้ายเตือน", "ป้ายแนะนำ", "ป้ายบอกระยะทาง"],
-    answer: 1,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายพื้นสีเหลือง ขอบดำ เป็นป้ายเตือนให้ระวังอันตราย เช่น ทางโค้ง ทางแยก ทางลาดชัน"
-  },
-  {
-    q: "ป้าย 'ให้ทาง' (สามเหลี่ยมชี้ลง) หมายถึง?",
-    choices: ["ให้รถทางเอกผ่านไปก่อน", "ให้รถในทิศของเราผ่านก่อน", "ห้ามเข้า", "หยุดตลอด"],
-    answer: 0,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายให้ทางรูปสามเหลี่ยมชี้ลง หมายถึงต้องชะลอและให้รถจากทางเอกผ่านไปก่อน จึงจะไปต่อได้"
-  },
-  {
-    q: "ป้ายพื้นสีน้ำเงิน ตัวอักษรหรือสัญลักษณ์สีขาว หมายถึง?",
-    choices: ["ป้ายห้าม", "ป้ายเตือน", "ป้ายบังคับแนะนำ/บอกทาง", "ป้ายอันตราย"],
-    answer: 2,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายสีน้ำเงินเป็นป้ายแนะนำหรือบอกทาง เช่น ที่จอดรถ ทางเดียว ทางข้าม"
-  },
-  {
-    q: "เมื่อเจอป้าย 'ห้ามแซง' ผู้ขับขี่ต้องทำอย่างไร?",
-    choices: ["แซงได้ถ้าถนนว่าง", "ห้ามแซงตลอดช่วงที่มีป้าย", "แซงได้เฉพาะรถจักรยานยนต์", "แซงได้ถ้าใช้ความเร็วต่ำ"],
-    answer: 1,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายห้ามแซงบังคับตั้งแต่จุดติดตั้งไปจนถึงทางแยก หรือจนกว่าจะมีป้ายยกเลิก ห้ามแซงรถคันหน้าในทุกกรณี"
-  },
-  {
-    q: "ป้าย 'ทางโค้งอันตราย' แสดงด้วยรูปใด?",
-    choices: ["สี่เหลี่ยมสีฟ้า มีลูกศรโค้ง", "สามเหลี่ยมสีแดง มีลูกศร", "ข้าวหลามตัดสีเหลือง มีลูกศรโค้ง", "วงกลมสีแดง มีลูกศร"],
-    answer: 2,
-    cat: "ป้ายจราจร",
-    explain: "ป้ายเตือนทางโค้งเป็นข้าวหลามตัดสีเหลือง มีลูกศรแสดงทิศทางและรูปแบบของโค้ง"
-  },
+  yield: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,8 92,85 8,85" fill="#fff" stroke="#d62828" stroke-width="8"/><text x="50" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#1a1a1a">ให้ทาง</text></svg>`,
 
-  // === หมวด 3: มารยาทและความปลอดภัย ===
-  {
-    q: "ระยะห่างที่ปลอดภัยจากรถคันหน้าขณะขับขี่ควรเป็นเท่าใด?",
-    choices: ["1 เมตร", "ใช้หลัก 2 วินาที (หรือ 3 วินาทีเมื่อฝนตก)", "5 เมตร", "แค่ไม่ชนก็พอ"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "ใช้หลัก '2 วินาที' - เมื่อรถหน้าผ่านจุดอ้างอิง นับ 1-2 วินาทีก่อนรถเราจะถึงจุดเดียวกัน ถ้าฝนตก/กลางคืนเพิ่มเป็น 3 วินาที"
-  },
-  {
-    q: "การเบรกรถจักรยานยนต์อย่างปลอดภัยควรทำอย่างไร?",
-    choices: ["เบรกหน้าอย่างเดียวแรงๆ", "เบรกหลังอย่างเดียว", "ใช้เบรกหน้า-หลังพร้อมกัน โดยเน้นเบรกหน้า", "บีบคลัตช์แล้วเบรกหลัง"],
-    answer: 2,
-    cat: "เทคนิคขับขี่",
-    explain: "การเบรกที่ปลอดภัยคือใช้เบรกหน้า+หลังพร้อมกัน โดยเบรกหน้ามีประสิทธิภาพสูงกว่า (70%) แต่ต้องใช้เบรกหลังช่วยเพื่อไม่ให้ล้อหน้าล็อก"
-  },
-  {
-    q: "การขับขี่บนถนนเปียกหลังฝนตกใหม่ๆ ต้องระวังอะไรเป็นพิเศษ?",
-    choices: ["ลมแรง", "น้ำมันและฝุ่นที่ลอยขึ้นมาจากผิวถนน (ลื่นมากที่สุด)", "อุณหภูมิเครื่องยนต์", "เสียงรถดังขึ้น"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "10-15 นาทีแรกหลังฝนตก ถนนลื่นที่สุดเพราะน้ำมันและฝุ่นที่สะสมลอยขึ้นผิวถนน ควรลดความเร็วและระวังเป็นพิเศษ"
-  },
-  {
-    q: "เมื่อขับขี่กลางคืนหรือผ่านอุโมงค์ ต้องทำอย่างไร?",
-    choices: ["เปิดไฟสูงตลอด", "เปิดไฟหน้าและไฟท้าย", "ไม่ต้องเปิดไฟ ถ้ามองเห็น", "เปิดไฟฉุกเฉินเท่านั้น"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "กฎหมายบังคับเปิดไฟหน้า-ไฟท้ายเวลากลางคืน ในอุโมงค์ หรือเมื่อทัศนวิสัยไม่ดี (ฝน/หมอก) สำหรับจักรยานยนต์ควรเปิดไฟหน้าตลอดเวลา"
-  },
-  {
-    q: "การเลี้ยวโค้งที่ปลอดภัยสำหรับรถจักรยานยนต์ควรปฏิบัติอย่างไร?",
-    choices: ["เร่งเครื่องแรงๆ เข้าโค้ง", "ชะลอก่อนเข้าโค้ง, เอียงรถเข้าโค้ง, เร่งเมื่อออกจากโค้ง", "เบรกกลางโค้ง", "ปล่อยคันเร่งและเบรกแรง"],
-    answer: 1,
-    cat: "เทคนิคขับขี่",
-    explain: "หลัก 'Slow-Look-Lean-Roll' : ชะลอก่อนเข้าโค้ง, มองจุดออกโค้ง, เอียงตัวกับรถ, แล้วค่อยๆ เร่งออกจากโค้ง ห้ามเบรกกลางโค้ง"
-  },
-  {
-    q: "หมวกนิรภัยที่ได้มาตรฐานต้องมีเครื่องหมายอะไร?",
-    choices: ["มอก.", "ISO", "CE", "FDA"],
-    answer: 0,
-    cat: "อุปกรณ์",
-    explain: "หมวกนิรภัยต้องมีเครื่องหมาย มอก. (มาตรฐานผลิตภัณฑ์อุตสาหกรรม) จึงจะถูกกฎหมายและปลอดภัย"
-  },
-  {
-    q: "การซ้อนท้ายจักรยานยนต์ที่ถูกต้องคือ?",
-    choices: ["ซ้อนได้หลายคนตามขนาดเบาะ", "ซ้อนได้ 1 คน และสวมหมวกนิรภัย", "เด็กซ้อนได้โดยไม่ต้องสวมหมวก", "ซ้อนท้าย 2 คนได้ถ้าไม่หนัก"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "จักรยานยนต์ซ้อนได้เพียง 1 คน ต้องนั่งคร่อมเบาะอย่างถูกต้อง และสวมหมวกนิรภัยทุกกรณี"
-  },
-  {
-    q: "เมื่อต้องการแซงรถคันหน้า ควรตรวจสอบอะไรก่อน?",
-    choices: ["เฉพาะกระจกซ้ายขวา", "กระจก, จุดบอด, สัญญาณ, ระยะทางและความเร็วของรถสวน", "แค่เปิดไฟเลี้ยว", "ความเร็วของรถตัวเอง"],
-    answer: 1,
-    cat: "เทคนิคขับขี่",
-    explain: "ก่อนแซงต้อง: 1) ส่องกระจก 2) หันตรวจจุดบอด 3) เปิดไฟเลี้ยว 4) ประเมินระยะและความเร็วรถสวน 5) แซงเสร็จเร็วและปลอดภัย"
-  },
-  {
-    q: "ถ้าเบรกรถจักรยานยนต์ล็อกขณะขับขี่ ควรทำอย่างไร?",
-    choices: ["บีบเบรกแน่นกว่าเดิม", "ปล่อยเบรกทันทีแล้วกดใหม่เบาๆ", "สตาร์ทดับเครื่อง", "โยกตัวซ้ายขวา"],
-    answer: 1,
-    cat: "เทคนิคขับขี่",
-    explain: "เมื่อเบรกล็อกให้ปล่อยเบรกทันทีเพื่อให้ล้อกลับมาหมุน แล้วค่อยๆ กดเบรกใหม่แบบเบาๆ (หลัก threshold braking) รถที่มี ABS จะจัดการให้อัตโนมัติ"
-  },
-  {
-    q: "ขับขี่ในช่องทางใดถือว่าถูกต้องที่สุดสำหรับรถจักรยานยนต์?",
-    choices: ["ช่องขวาสุด เพื่อความเร็ว", "ช่องซ้ายสุด หรือช่องทางสำหรับจักรยานยนต์ (ถ้ามี)", "ช่องกลางถนน", "ที่ไหนก็ได้"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "รถจักรยานยนต์ต้องขับในช่องซ้ายสุด หรือช่องทางที่กำหนดไว้โดยเฉพาะ ห้ามขับคร่อมเส้นหรือแทรกกลางช่อง"
-  },
+  noEntry: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#d62828" stroke="#fff" stroke-width="3"/><rect x="20" y="44" width="60" height="12" fill="#fff"/></svg>`,
 
-  // === หมวด 4: เครื่องหมายบนพื้นถนน ===
-  {
-    q: "เส้นประสีขาวบนถนนหมายถึงอะไร?",
-    choices: ["ห้ามแซง", "แบ่งช่องทางการจราจร, เปลี่ยนเลนหรือแซงได้เมื่อปลอดภัย", "เส้นหยุดรถ", "ทางข้าม"],
-    answer: 1,
-    cat: "เครื่องหมายจราจร",
-    explain: "เส้นประขาวใช้แบ่งช่องทางการจราจรที่ไปทิศทางเดียวกัน สามารถเปลี่ยนเลนหรือแซงได้เมื่อมั่นใจว่าปลอดภัย"
-  },
-  {
-    q: "เส้นทึบสีเหลือง 2 เส้นคู่กลางถนนหมายถึง?",
-    choices: ["แบ่งทิศทางการจราจร ห้ามคร่อม/ห้ามแซงทั้งสองฝั่ง", "ขับได้ทุกช่องทาง", "ช่องสำหรับรถฉุกเฉิน", "เลี้ยวซ้ายได้"],
-    answer: 0,
-    cat: "เครื่องหมายจราจร",
-    explain: "เส้นทึบเหลืองคู่แบ่งทิศทางการจราจรตรงข้าม ห้ามแซงและห้ามคร่อมเส้นในทุกกรณี"
-  },
-  {
-    q: "เครื่องหมาย 'ทางม้าลาย' (ขาว-ดำสลับ) มีความหมายว่าอย่างไร?",
-    choices: ["ช่องสำหรับรถจักรยาน", "ทางข้ามของคนเดินเท้า ต้องชะลอและหยุดให้คนข้าม", "ช่องจอดรถชั่วคราว", "เขตห้ามจอด"],
-    answer: 1,
-    cat: "เครื่องหมายจราจร",
-    explain: "ทางม้าลายเป็นทางข้ามของคนเดินเท้า ผู้ขับขี่ต้องชะลอและหยุดให้คนข้ามโดยเด็ดขาด ไม่หยุดมีโทษปรับ"
-  },
+  noOvertake: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g transform="translate(50,50)"><rect x="-22" y="-22" width="12" height="40" fill="#1a1a1a" rx="2"/><polygon points="-26,-22 -6,-22 -16,-30" fill="#1a1a1a"/><rect x="6" y="-18" width="12" height="40" fill="#d62828" rx="2"/><polygon points="2,-18 22,-18 12,-26" fill="#d62828"/></g><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
 
-  // === หมวด 5: อุปกรณ์และการบำรุงรักษา ===
-  {
-    q: "ก่อนออกขับขี่รถจักรยานยนต์ ควรตรวจสอบอะไรบ้าง?",
-    choices: ["เฉพาะน้ำมัน", "ลมยาง, น้ำมัน, เบรก, ไฟทุกดวง, กระจก, โซ่", "เฉพาะเบรก", "เฉพาะแบตเตอรี่"],
-    answer: 1,
-    cat: "การบำรุงรักษา",
-    explain: "T-CLOCS: Tires(ยาง), Controls(คันเร่ง/เบรก/คลัตช์), Lights(ไฟ), Oil(น้ำมัน), Chassis(โซ่/ช่วงล่าง), Stands(ขาตั้ง) ต้องตรวจเช็คทุกครั้งก่อนออกรถ"
-  },
-  {
-    q: "ยางรถจักรยานยนต์ที่ดอกยางสึกจนเหลือน้อยกว่าเท่าใด ควรเปลี่ยน?",
-    choices: ["0.5 มม.", "1.6 มม.", "5 มม.", "10 มม."],
-    answer: 1,
-    cat: "การบำรุงรักษา",
-    explain: "ดอกยางควรมีความลึกอย่างน้อย 1.6 มม. ต่ำกว่านี้ยางจะลื่นง่ายโดยเฉพาะถนนเปียก และผิดกฎหมาย"
-  },
-  {
-    q: "สัญญาณเตือนใดบ่งบอกว่าเบรกอาจมีปัญหา?",
-    choices: ["เสียงจี๊ดๆ เมื่อเบรก, ระยะเบรกไกลขึ้น, คันเบรกนุ่มผิดปกติ", "เครื่องยนต์ดังขึ้น", "ยางร้อนขึ้น", "ไฟหน้าสว่างขึ้น"],
-    answer: 0,
-    cat: "การบำรุงรักษา",
-    explain: "สัญญาณเบรกมีปัญหา: เสียงจี๊ดๆ (ผ้าเบรกหมด), คันเบรกนุ่ม (น้ำมันรั่ว/อากาศในระบบ), ระยะเบรกไกลกว่าปกติ ต้องตรวจเช็คทันที"
-  },
-  {
-    q: "การใช้โซ่รถจักรยานยนต์ที่ถูกต้องคือ?",
-    choices: ["ตึงที่สุด", "ปรับให้หย่อนประมาณ 2-3 ซม. และหยอดน้ำมันเป็นประจำ", "ห่อพลาสติก", "ไม่ต้องดูแล"],
-    answer: 1,
-    cat: "การบำรุงรักษา",
-    explain: "โซ่ต้องมีระยะหย่อน 2-3 ซม. (ตรวจจุดกึ่งกลางโซ่) ตึงเกินจะชำรุดเร็ว หย่อนเกินจะหลุด และต้องหยอดน้ำมันโซ่สม่ำเสมอ"
-  },
+  noLeftTurn: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="#1a1a1a" transform="translate(50,50)"><path d="M 20,-5 L -5,-5 L -5,-15 L -25,0 L -5,15 L -5,5 L 20,5 Z"/></g><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
 
-  // === หมวด 6: การขับขี่เชิงป้องกัน ===
-  {
-    q: "สาเหตุหลักของอุบัติเหตุรถจักรยานยนต์ในไทยคืออะไร?",
-    choices: ["ยางแตก", "ขับเร็วเกินกำหนด, เมาสุรา, ไม่สวมหมวก, ตัดหน้ากระชั้นชิด", "ฝนตก", "รถเสีย"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "สถิติจริง: ปัจจัยหลักคือพฤติกรรม - เร็วเกิน, เมาแล้วขับ, ตัดหน้ากระชั้น, ไม่สวมหมวก การแก้ที่พฤติกรรมจะลดอุบัติเหตุได้มากที่สุด"
-  },
-  {
-    q: "'จุดบอด' (Blind Spot) ของรถยนต์คืออะไร และเกี่ยวกับจักรยานยนต์อย่างไร?",
-    choices: ["จุดที่ไฟหน้าส่องไม่ถึง", "จุดที่คนขับมองไม่เห็นจากกระจก มักเป็นด้านข้าง-ท้าย รถจักรยานยนต์ควรหลีกเลี่ยง", "จุดดำกลางถนน", "จุดที่ GPS ไม่ทำงาน"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "จุดบอดคือบริเวณด้านข้างและท้ายรถที่คนขับรถยนต์มองไม่เห็นจากกระจก รถจักรยานยนต์เล็กๆ หายเข้าไปในจุดนี้ได้ง่าย ควรขับให้อยู่ในสายตาคนขับเสมอ"
-  },
-  {
-    q: "เมื่อเจอรถใหญ่ (รถบรรทุก/รถบัส) ควรทำอย่างไร?",
-    choices: ["ขับประชิดเพื่อลดแรงลม", "เว้นระยะห่าง, หลีกเลี่ยงจุดบอด, ไม่ขับคู่ขนาน", "แซงทางซ้ายเสมอ", "บีบแตรเตือน"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "รถใหญ่มีจุดบอดมาก เลี้ยวมีวงเลี้ยวกว้าง และเบรกไม่ทันได้ ควรเว้นระยะ หลีกเลี่ยงขับคู่ขนาน และแซงให้พ้นเร็วที่สุด"
-  },
-  {
-    q: "ถ้าถูกสัตว์ (เช่น สุนัข) วิ่งตัดหน้า ควรทำอย่างไร?",
-    choices: ["เบรกกะทันหันแรงๆ", "หักหลบทันที", "ชะลอและใช้เบรกสมดุล, ไม่หักหลบกะทันหัน", "เร่งผ่านไป"],
-    answer: 2,
-    cat: "เทคนิคขับขี่",
-    explain: "ห้ามเบรกกะทันหันหรือหักหลบแรง ทำให้ล้มได้ ให้ใช้เบรกอย่างนุ่มนวลและค่อยๆ หลบถ้าทำได้ ในกรณีหลีกเลี่ยงไม่ได้ การชนตรงๆ อาจปลอดภัยกว่าการล้ม"
-  },
-  {
-    q: "การขับรถจักรยานยนต์ในกลุ่ม (ขี่เป็นขบวน) ควรจัดรูปแบบอย่างไร?",
-    choices: ["ขับชิดกันแบบติดกัน", "ขับแบบสลับฟันปลา (staggered) เว้นระยะ 2 วินาทีกับคันหน้าตรง", "ขับคู่ขนานในช่องเดียวกัน", "ขับแซงกันไปมา"],
-    answer: 1,
-    cat: "เทคนิคขับขี่",
-    explain: "การขี่กลุ่มที่ปลอดภัยคือ staggered formation - คันหน้าชิดซ้าย, คันถัดมาชิดขวา สลับกันไป และเว้นระยะ 2 วินาทีกับคันหน้าตรง"
-  },
+  noRightTurn: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="#1a1a1a" transform="translate(50,50) scale(-1,1)"><path d="M 20,-5 L -5,-5 L -5,-15 L -25,0 L -5,15 L -5,5 L 20,5 Z"/></g><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
 
-  // === หมวด 7: จิตสำนึกและกฎหมาย ===
-  {
-    q: "ใบขับขี่ชั่วคราว (ใบขับขี่แบบใหม่) มีอายุกี่ปี?",
-    choices: ["1 ปี", "2 ปี", "5 ปี", "ตลอดชีพ"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "ใบขับขี่ชั่วคราวอายุ 2 ปี หลังจากนั้นต่ออายุเป็นใบขับขี่ตลอดชีพ (5 ปี) โดยต้องทดสอบสมรรถภาพร่างกาย"
-  },
-  {
-    q: "ใบขับขี่ที่ต่อใหม่หลังใบชั่วคราวหมดอายุ ใช้ได้กี่ปี?",
-    choices: ["2 ปี", "3 ปี", "5 ปี", "10 ปี"],
-    answer: 2,
-    cat: "กฎหมาย",
-    explain: "ใบขับขี่ส่วนบุคคล (หลังต่อจากใบชั่วคราว) อายุ 5 ปี ต้องต่อก่อนหมดอายุเพื่อไม่ต้องสอบใหม่"
-  },
-  {
-    q: "การขับขี่โดยไม่มีใบขับขี่ มีโทษอย่างไร?",
-    choices: ["ตักเตือน", "จำคุกไม่เกิน 1 เดือน หรือปรับไม่เกิน 1,000 บาท หรือทั้งจำทั้งปรับ", "ยึดรถ 1 ปี", "ไม่มีความผิด"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "ขับขี่โดยไม่มีใบขับขี่: จำคุกไม่เกิน 1 เดือน หรือปรับไม่เกิน 1,000 บาท (หรือทั้งจำทั้งปรับ) ตาม พ.ร.บ. รถยนต์"
-  },
-  {
-    q: "รถจักรยานยนต์ต้องต่อภาษีรถ (ป้ายวงกลม) ทุกๆ กี่ปี?",
-    choices: ["ทุก 6 เดือน", "ทุก 1 ปี", "ทุก 2 ปี", "ทุก 5 ปี"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "ภาษีรถ (ป้ายวงกลม) ต้องต่อทุกปี พร้อมทำ พ.ร.บ. (ประกันภัยภาคบังคับ) ถ้าขาดต่อเกิน 3 ปี ทะเบียนจะถูกระงับ"
-  },
-  {
-    q: "พ.ร.บ. (ประกันภัยภาคบังคับ) คุ้มครองอะไร?",
-    choices: ["เฉพาะผู้ขับขี่", "ความเสียหายต่อบุคคลที่สาม และผู้ประสบภัยจากรถคันเอาประกัน", "เฉพาะตัวรถ", "ไม่คุ้มครองอะไรเลย"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "พ.ร.บ. คุ้มครองการบาดเจ็บ/เสียชีวิตของผู้ประสบภัยจากรถ (ทั้งผู้ขับ ผู้โดยสาร คนเดินถนน) ไม่คุ้มครองความเสียหายต่อตัวรถ"
-  },
-  {
-    q: "เมื่อประสบอุบัติเหตุ ผู้ขับขี่ต้องทำอย่างไร?",
-    choices: ["หนีออกจากที่เกิดเหตุ", "หยุดรถ, ช่วยเหลือผู้บาดเจ็บ, แจ้งตำรวจ/ประกัน, ไม่เคลื่อนย้ายจุดเกิดเหตุ", "โยนความผิดให้คู่กรณี", "ถ่ายรูปแล้วไปต่อ"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "ต้องหยุดรถ, ดูแลผู้บาดเจ็บ (โทร 1669), แจ้งตำรวจ (191) และประกัน, เก็บรักษาหลักฐาน การหนีมีโทษหนักทั้งจำทั้งปรับ"
-  },
+  noUTurnRight: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="none" stroke="#1a1a1a" stroke-width="5"><path d="M 35,65 L 35,40 A 15,15 0 0 1 65,40 L 65,65"/></g><polygon points="60,60 70,60 65,72" fill="#1a1a1a"/><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
 
-  // === หมวด 8: สถานการณ์ฉุกเฉิน ===
-  {
-    q: "ถ้าคันเร่งค้างขณะขับขี่ ควรทำอย่างไร?",
-    choices: ["ดับเครื่องทันที", "บีบคลัตช์ (หรือปิดสวิตช์ kill switch) แล้วประคองรถเข้าข้างทาง", "เบรกอย่างเดียว", "ปล่อยให้หยุดเอง"],
-    answer: 1,
-    cat: "เทคนิคฉุกเฉิน",
-    explain: "ถ้าคันเร่งค้าง: 1) บีบคลัตช์เพื่อตัดกำลัง (หรือกดสวิตช์ kill switch), 2) เบรกชะลอ, 3) ประคองเข้าข้างทาง, 4) ดับเครื่อง"
-  },
-  {
-    q: "ถ้ายางรั่วขณะขับขี่ ควรทำอย่างไร?",
-    choices: ["เบรกแรงๆ หยุดทันที", "ประคองแฮนด์ให้มั่นคง, ค่อยๆ ชะลอ, ประคองเข้าข้างทาง", "เร่งเพื่อออกจากถนน", "โยกรถซ้ายขวา"],
-    answer: 1,
-    cat: "เทคนิคฉุกเฉิน",
-    explain: "ยางรั่วห้ามเบรกแรงหรือหักเลี้ยวกะทันหัน ให้จับแฮนด์ให้มั่น ค่อยๆ ลดคันเร่ง ใช้เบรกของล้อที่ยางยังดีอยู่ และประคองเข้าข้างทาง"
-  },
-  {
-    q: "เมื่อเจอรถฉุกเฉิน (รถพยาบาล/ดับเพลิง/ตำรวจ) เปิดสัญญาณไฟ-เสียง ต้องทำอย่างไร?",
-    choices: ["ขับต่อไปตามปกติ", "ชะลอ/หยุดและหลบให้รถฉุกเฉินผ่านไปก่อน", "ตามไปด้วย", "เปิดไฟเลี้ยวขวา"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "เมื่อเจอรถฉุกเฉินที่เปิดสัญญาณ ต้องหยุดหรือหลบชิดซ้าย (หรือขวาตามสถานการณ์) ให้ผ่านไปก่อน ผู้ฝ่าฝืนมีโทษปรับ"
-  },
-  {
-    q: "การเติมน้ำมันรถจักรยานยนต์ ควรทำอย่างไร?",
-    choices: ["ติดเครื่องขณะเติม", "ดับเครื่อง, ไม่สูบบุหรี่, ไม่ใช้โทรศัพท์บริเวณปั้ม", "เติมเต็มถังเกินพิกัด", "เปิดไฟฉุกเฉินขณะเติม"],
-    answer: 1,
-    cat: "ความปลอดภัย",
-    explain: "ต้องดับเครื่องยนต์, ไม่สูบบุหรี่, ไม่ใช้โทรศัพท์ในบริเวณปั้มน้ำมัน เนื่องจากไอน้ำมันติดไฟง่ายมาก"
-  },
-  {
-    q: "ถ้าเครื่องยนต์ดับกลางถนน ควรทำอย่างไรเป็นอันดับแรก?",
-    choices: ["ยืนพยายามสตาร์ทกลางถนน", "ประคองรถเข้าข้างทางให้พ้นช่องจราจร แล้วเปิดไฟฉุกเฉิน", "ปล่อยทิ้งไว้", "บีบแตรขอความช่วยเหลือ"],
-    answer: 1,
-    cat: "เทคนิคฉุกเฉิน",
-    explain: "อันดับแรกคือย้ายรถออกจากช่องจราจรให้ปลอดภัย เปิดไฟฉุกเฉิน/สามเหลี่ยมสะท้อนแสง เพื่อไม่ให้ถูกชนซ้ำ แล้วค่อยตรวจหาสาเหตุ"
-  },
+  noCar: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="#1a1a1a"><rect x="22" y="48" width="56" height="14" rx="3"/><path d="M 30,48 L 36,36 L 64,36 L 70,48 Z"/><circle cx="33" cy="65" r="5" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><circle cx="67" cy="65" r="5" fill="#fff" stroke="#1a1a1a" stroke-width="2"/></g><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
 
-  // === หมวด 9: ข้อสอบเพิ่มเติม ===
-  {
-    q: "ในทางแยกที่ไม่มีสัญญาณไฟจราจร รถที่มาจากทางไหนมีสิทธิ์ไปก่อน?",
-    choices: ["รถที่มาจากซ้าย", "รถที่มาจากขวาของผู้ขับ (หรือตามป้ายกำหนด)", "รถที่เร็วกว่า", "รถคันใหญ่"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "หลักทั่วไป: ในทางแยกที่ไม่มีสัญญาณ/ป้าย รถที่มาจากทางขวาของผู้ขับมีสิทธิ์ไปก่อน แต่ถ้ามีป้ายให้ทาง/หยุด ต้องปฏิบัติตามป้าย"
-  },
-  {
-    q: "การจอดรถจักรยานยนต์บนทางเท้า (footpath) มีความผิดหรือไม่?",
-    choices: ["ไม่ผิดเพราะรถเล็ก", "ผิด ปรับไม่เกิน 5,000 บาท", "ผิดเฉพาะเมื่อขับขึ้น", "ผิดเฉพาะในกรุงเทพ"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "การขับหรือจอดรถจักรยานยนต์บนทางเท้าผิดกฎหมาย มีโทษปรับไม่เกิน 5,000 บาท ทางเท้ามีไว้สำหรับคนเดินเท้าเท่านั้น"
-  },
-  {
-    q: "การขับรถจักรยานยนต์ขึ้นทางด่วนพิเศษ/มอเตอร์เวย์ ทำได้หรือไม่?",
-    choices: ["ทำได้ทุกสาย", "ทำได้เฉพาะรถเกิน 400 ซีซี บางสาย (เช่น บางพลี-บางปะอิน)", "ห้ามโดยเด็ดขาดทุกสาย", "ทำได้ทุกคันแต่ต้องจ่ายเพิ่ม"],
-    answer: 1,
-    cat: "กฎหมาย",
-    explain: "ทางด่วนและมอเตอร์เวย์ส่วนใหญ่ห้ามรถจักรยานยนต์ ยกเว้นบางสายที่อนุญาตเฉพาะรถเกิน 400 ซีซี ต้องตรวจสอบป้ายและประกาศทางการ"
-  },
-  {
-    q: "เมื่อจำเป็นต้องขับบนไหล่ทาง ทำได้หรือไม่?",
-    choices: ["ได้เสมอ ถ้ารถติด", "ห้าม ยกเว้นกรณีฉุกเฉินหรือรถเสีย", "ได้เฉพาะรถจักรยานยนต์", "ได้ตอนกลางคืน"],
-    answer: 1,
-    cat: "กฎจราจร",
-    explain: "ไหล่ทางไม่ใช่ช่องทางการจราจร ห้ามใช้เพื่อขับขี่ปกติ (รวมถึงแซงรถติด) ใช้ได้เฉพาะกรณีฉุกเฉิน-รถเสีย มีโทษปรับ"
-  }
+  noMotorcycle: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="#1a1a1a"><circle cx="32" cy="60" r="8" fill="none" stroke="#1a1a1a" stroke-width="3"/><circle cx="68" cy="60" r="8" fill="none" stroke="#1a1a1a" stroke-width="3"/><path d="M 32,60 L 50,45 L 58,45 L 68,60" stroke="#1a1a1a" stroke-width="3" fill="none"/><circle cx="54" cy="38" r="4"/></g><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="6"/></svg>`,
+
+  speedLimit: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><text x="50" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="34" fill="#1a1a1a">80</text></svg>`,
+
+  noParking: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#1e5bab" stroke="#d62828" stroke-width="8"/><line x1="18" y1="18" x2="82" y2="82" stroke="#d62828" stroke-width="8"/><text x="50" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="30" fill="#fff">P</text></svg>`,
+
+  oppositeYield: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d62828" stroke-width="8"/><g fill="#1a1a1a"><rect x="38" y="22" width="8" height="32"/><polygon points="34,54 50,68 42,54"/><rect x="54" y="46" width="8" height="32"/><polygon points="50,32 58,46 66,32"/></g><g fill="#d62828"><rect x="54" y="46" width="8" height="32"/><polygon points="50,32 58,46 66,32"/></g></svg>`,
+
+  curveRight: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><path d="M 30,75 Q 30,35 70,35" fill="none" stroke="#1a1a1a" stroke-width="6"/><polygon points="62,30 75,32 67,42" fill="#1a1a1a"/></svg>`,
+
+  curveLeft: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><path d="M 70,75 Q 70,35 30,35" fill="none" stroke="#1a1a1a" stroke-width="6"/><polygon points="38,30 25,32 33,42" fill="#1a1a1a"/></svg>`,
+
+  crosswalk: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><g fill="#1a1a1a"><circle cx="50" cy="30" r="6"/><rect x="47" y="38" width="6" height="20"/><line x1="38" y1="48" x2="62" y2="48" stroke="#1a1a1a" stroke-width="3"/><line x1="43" y1="75" x2="50" y2="58" stroke="#1a1a1a" stroke-width="4"/><line x1="57" y1="75" x2="50" y2="58" stroke="#1a1a1a" stroke-width="4"/></g></svg>`,
+
+  trafficLight: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><rect x="42" y="25" width="16" height="50" rx="3" fill="#1a1a1a"/><circle cx="50" cy="35" r="5" fill="#d62828"/><circle cx="50" cy="50" r="5" fill="#ffd500"/><circle cx="50" cy="65" r="5" fill="#2d7a4b"/></svg>`,
+
+  pedestrianCrossing: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" fill="#1e5bab" stroke="#fff" stroke-width="3"/><g fill="#fff"><polygon points="20,75 30,15 35,15 30,75"/><polygon points="40,75 50,15 55,15 45,75"/><polygon points="60,75 70,15 75,15 65,75"/><circle cx="50" cy="30" r="4" fill="#1a1a1a"/><rect x="47" y="35" width="6" height="15" fill="#1a1a1a"/></g></svg>`,
+
+  parking: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" fill="#1e5bab" stroke="#fff" stroke-width="3"/><text x="50" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="58" fill="#fff">P</text></svg>`,
+
+  oneWay: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="35" width="80" height="30" fill="#1e5bab" stroke="#fff" stroke-width="2"/><polygon points="75,50 55,35 55,45 25,45 25,55 55,55 55,65" fill="#fff"/></svg>`,
+
+  bumpyRoad: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><path d="M 15,60 Q 30,40 45,60 Q 60,40 75,60 Q 85,55 85,60" fill="none" stroke="#1a1a1a" stroke-width="4"/></svg>`,
+
+  slippery: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><g fill="#1a1a1a"><rect x="40" y="30" width="20" height="25" rx="3"/><ellipse cx="45" cy="60" rx="3" ry="2"/><ellipse cx="55" cy="65" rx="3" ry="2"/><path d="M 25,75 Q 35,70 45,75 M 55,75 Q 65,70 75,75" stroke="#1a1a1a" stroke-width="3" fill="none"/></g></svg>`,
+
+  tRoad: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 95,50 50,95 5,50" fill="#ffd500" stroke="#1a1a1a" stroke-width="3"/><g fill="#1a1a1a"><rect x="46" y="55" width="8" height="30"/><rect x="20" y="46" width="60" height="8"/></g></svg>`
+};
+
+// ========================================
+// คลังข้อสอบ (80+ ข้อ) อ้างอิง DLT 2566
+// ========================================
+const QUESTION_BANK = [
+  // === ป้ายจราจร (with SVG images) ===
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "stop", choices: ["หยุดก่อนเส้น รอให้ปลอดภัยจึงเคลื่อนต่อ", "ชะลอความเร็วเท่านั้น", "ห้ามเข้า", "ให้ทางแก่รถอื่น"], answer: 0, cat: "ป้ายจราจร", explain: "ป้าย 'หยุด' (STOP) ต้องหยุดรถให้สนิทก่อนเส้นหยุด รอให้รถ/คนเดินเท้าผ่าน แน่ใจว่าปลอดภัยจึงเคลื่อนต่อ" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "yield", choices: ["ขับผ่านได้ทันที", "ต้องระมัดระวังและให้ทางแก่รถ/คนบนทางขวางหน้าก่อน", "ห้ามเลี้ยว", "หยุดรถ 3 วินาที"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ให้ทาง' (สามเหลี่ยมชี้ลง) ต้องให้รถ/คนเดินเท้าทางขวางหน้าผ่านไปก่อน เมื่อปลอดภัยจึงเคลื่อนด้วยความระมัดระวัง" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noEntry", choices: ["เลี้ยวได้ทุกทิศ", "ห้ามรถทุกชนิดเข้าในทิศที่ติดตั้งป้าย", "ทางเดียว", "จอดรถชั่วคราว"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามเข้า' = ห้ามรถทุกชนิดเข้าไปในทิศทางที่ติดตั้งป้าย ฝ่าฝืนปรับไม่เกิน 1,000 บาท" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noOvertake", choices: ["แซงได้ถ้าว่าง", "ห้ามขับรถแซงคันอื่นในเขตทางที่ติดป้าย", "แซงได้ฝั่งซ้าย", "เลี้ยวได้"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามแซง' = ห้ามขับรถแซงรถคันอื่นทุกกรณีในเขตทางที่ติดตั้งป้าย จนกว่าจะมีป้ายยกเลิก" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noLeftTurn", choices: ["เลี้ยวซ้ายได้", "ห้ามเลี้ยวซ้าย", "กลับรถได้", "ห้ามเข้า"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามเลี้ยวซ้าย' = ห้ามเลี้ยวรถไปทางซ้ายในเขตที่ติดตั้งป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noRightTurn", choices: ["เลี้ยวขวาได้", "ห้ามเลี้ยวขวา", "ทางโค้ง", "ต้องกลับรถ"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามเลี้ยวขวา' = ห้ามเลี้ยวรถไปทางขวาในเขตที่ติดตั้งป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noUTurnRight", choices: ["กลับรถได้", "ห้ามกลับรถไปทางขวา", "เลี้ยวขวาได้", "ทางวงเวียน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามกลับรถไปทางขวา' = ห้ามกลับรถไปทางขวาไม่ว่าด้วยวิธีใดๆ" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noCar", choices: ["ที่จอดรถยนต์", "ห้ามรถยนต์ทุกชนิดผ่าน", "เส้นทางรถยนต์", "รถยนต์ผ่านได้"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามรถยนต์ผ่าน' = ห้ามรถยนต์ทุกชนิดผ่านเข้าออกในเขตทางที่ติดป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noMotorcycle", choices: ["ที่จอดรถจักรยานยนต์", "ห้ามรถจักรยานยนต์ทุกชนิดผ่าน", "ช่องจักรยานยนต์", "รถจักรยานยนต์ผ่านได้"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามรถจักรยานยนต์ผ่าน' = ห้ามรถจักรยานยนต์ทุกชนิดผ่านเข้าออกในเขตทางที่ติดป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "speedLimit", choices: ["ต้องขับเร็วอย่างน้อย 80 กม./ชม.", "ความเร็วจำกัดไม่เกิน 80 กม./ชม.", "ระยะทาง 80 กม.", "อายุรถ 80 ปี"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายจำกัดความเร็ว (ตัวเลขในวงกลมขอบแดง) = ห้ามขับเร็วเกินตัวเลขที่กำหนดในเขตทางที่ติดป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "noParking", choices: ["ที่จอดรถ", "ห้ามจอดรถ", "ที่จอดพิเศษ", "ลานจอดสาธารณะ"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ห้ามจอดรถ' (พื้นน้ำเงิน, กากบาทแดง, อักษร P) = ห้ามจอดรถในเขตที่ติดตั้งป้าย" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "oppositeYield", choices: ["ทางเดินรถสองทาง", "ให้รถสวนทางมาก่อน - ต้องหยุดรอให้รถสวนผ่านไปก่อน", "แซงได้", "ทางคู่ขนาน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ให้รถสวนทางมาก่อน' = หยุดรอให้รถสวนทางผ่านไปหมดก่อน แล้วจึงเคลื่อนผ่านไปได้" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "curveRight", choices: ["ทางโค้งไปทางขวา ให้ชะลอและระวัง", "ห้ามเลี้ยวขวา", "ต้องเลี้ยวขวา", "ทางลัดขวา"], answer: 0, cat: "ป้ายจราจร", explain: "ป้ายเตือนทางโค้งขวา (สีเหลือง ขอบดำ ลูกศรโค้ง) ให้ลดความเร็วและระวังอันตราย" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "curveLeft", choices: ["ทางโค้งไปทางซ้าย ให้ชะลอและระวัง", "ห้ามเลี้ยวซ้าย", "ต้องเลี้ยวซ้าย", "ทางลัดซ้าย"], answer: 0, cat: "ป้ายจราจร", explain: "ป้ายเตือนทางโค้งซ้าย ต้องลดความเร็วก่อนเข้าโค้ง ระวังรถสวน" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "crosswalk", choices: ["คนเดินข้าม - ต้องชะลอและหยุดให้คนข้าม", "ห้ามคนเดิน", "ที่พักคนเดิน", "ทางจักรยาน"], answer: 0, cat: "ป้ายจราจร", explain: "ป้ายเตือน 'คนเดินข้าม' ต้องชะลอและหยุดให้คนข้ามทางม้าลาย ไม่หยุดมีโทษปรับ" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "trafficLight", choices: ["สัญญาณไฟจราจรข้างหน้า ให้เตรียมตัว", "ห้ามเข้า", "ไฟเสีย", "ทางข้าม"], answer: 0, cat: "ป้ายจราจร", explain: "ป้ายเตือน 'สัญญาณไฟ' ข้างหน้ามีสัญญาณไฟจราจร ให้เตรียมชะลอและเตรียมตัวหยุด" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "pedestrianCrossing", choices: ["ห้ามคนข้าม", "ทางข้ามคนเดินเท้า (ทางม้าลาย)", "ทางจักรยาน", "เขตโรงเรียน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายแนะนำ 'ทางข้ามคนเดินเท้า' บอกจุดที่เป็นทางม้าลาย คนเดินเท้ามีสิทธิ์ข้ามก่อน" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "parking", choices: ["ห้ามจอด", "ที่จอดรถ", "ที่พัก", "ปั๊มน้ำมัน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายแนะนำ 'ที่จอดรถ' (พื้นน้ำเงิน ตัว P ขาว) บอกบริเวณที่จอดรถได้" },
+  { q: "ป้ายนี้หมายความว่าอย่างไร?", sign: "oneWay", choices: ["สองทาง", "ทางเดินรถทางเดียว - ไปในทิศที่ลูกศรชี้เท่านั้น", "ห้ามเข้า", "ทางด่วน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้าย 'ทางเดินรถทางเดียว' (One Way) รถต้องไปในทิศที่ลูกศรชี้เท่านั้น ห้ามย้อนศร" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "bumpyRoad", choices: ["ทางเรียบ", "ผิวทางขรุขระ/เป็นลูกระนาด ให้ชะลอ", "ทางโค้ง", "สะพาน"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายเตือน 'ผิวทางขรุขระ' หรือ 'ลูกระนาด' ให้ลดความเร็ว ระวังรถกระเทือน" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "slippery", choices: ["ถนนลื่น - ชะลอและระวังลื่นไถล", "ห้ามจอด", "ทางโค้ง", "รถเสีย"], answer: 0, cat: "ป้ายจราจร", explain: "ป้ายเตือน 'ถนนลื่น' (รถกับรอยลื่น) ให้ชะลอและเว้นระยะห่างมากขึ้น ระวังน้ำ/น้ำมันบนถนน" },
+  { q: "ป้ายนี้เตือนเรื่องอะไร?", sign: "tRoad", choices: ["ทางตรง", "ทางแยกสามแพร่ง (T-junction)", "สะพาน", "อุโมงค์"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายเตือน 'ทางแยกสามแพร่ง' (รูปตัว T) ข้างหน้ามีทางแยก ต้องชะลอและเตรียมเลี้ยว" },
+
+  // === ไม่มีภาพ - ความรู้ทั่วไป ===
+  { q: "ป้ายสีแดง-ขาว รูปวงกลม หมายถึงป้ายประเภทใด?", choices: ["ป้ายเตือน", "ป้ายบังคับ (ห้าม)", "ป้ายแนะนำ", "ป้ายบอกทาง"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายวงกลมสีแดง-ขาว = ป้ายบังคับประเภท 'ห้าม' เช่น ห้ามเข้า ห้ามแซง ห้ามจอด" },
+  { q: "ป้ายสีเหลือง รูปข้าวหลามตัด หมายถึงป้ายประเภทใด?", choices: ["ป้ายห้าม", "ป้ายเตือน", "ป้ายแนะนำ", "ป้ายบอกระยะทาง"], answer: 1, cat: "ป้ายจราจร", explain: "ป้ายพื้นเหลือง ขอบดำ รูปข้าวหลามตัด = ป้ายเตือน ให้ระวังอันตรายข้างหน้า" },
+  { q: "ป้ายพื้นสีน้ำเงิน ตัวอักษร/สัญลักษณ์สีขาว หมายถึง?", choices: ["ป้ายห้าม", "ป้ายเตือน", "ป้ายแนะนำ/บอกทาง", "ป้ายอันตราย"], answer: 2, cat: "ป้ายจราจร", explain: "ป้ายสีน้ำเงินเป็นป้ายแนะนำหรือบอกทาง เช่น ที่จอดรถ ทางข้าม ทางเดียว" },
+
+  // === กฎหมายรถยนต์ ===
+  { q: "ผู้ใดใช้รถโดยไม่จดทะเบียนหรือไม่ชำระภาษี ต้องระวางโทษปรับไม่เกินเท่าใด?", choices: ["2,000 บาท", "5,000 บาท", "10,000 บาท", "20,000 บาท"], answer: 2, cat: "พ.ร.บ. รถยนต์", explain: "ตาม พ.ร.บ. รถยนต์ พ.ศ. 2522 ใช้รถโดยไม่จดทะเบียน/ไม่ชำระภาษี ปรับไม่เกิน 10,000 บาท" },
+  { q: "การเปลี่ยนสีรถให้ต่างจากที่จดทะเบียน ต้องแจ้งนายทะเบียนภายในกี่วัน?", choices: ["7 วัน", "15 วัน", "30 วัน", "60 วัน"], answer: 0, cat: "พ.ร.บ. รถยนต์", explain: "ต้องแจ้งภายใน 7 วันนับแต่วันเปลี่ยนแปลงสี ฝ่าฝืนปรับไม่เกิน 2,000 บาท" },
+  { q: "การโอนรถที่จดทะเบียนแล้ว ต้องแจ้งต่อนายทะเบียนภายในกี่วัน?", choices: ["7 วัน", "15 วัน", "30 วัน", "60 วัน"], answer: 1, cat: "พ.ร.บ. รถยนต์", explain: "ต้องแจ้งภายใน 15 วันนับแต่วันโอนรถ ฝ่าฝืนปรับไม่เกิน 2,000 บาท" },
+  { q: "รถที่ติด 'ป้ายแดง' สามารถนำมาใช้บนถนนได้เมื่อใด?", choices: ["ใช้ได้ตลอดเวลา", "เฉพาะเวลากลางวัน (พระอาทิตย์ขึ้น-ตก) เพื่อส่งลูกค้าหรือซ่อม", "เฉพาะในเมือง", "ใช้ได้เฉพาะกลางคืน"], answer: 1, cat: "พ.ร.บ. รถยนต์", explain: "ป้ายแดงใช้ได้เฉพาะเวลากลางวัน (พระอาทิตย์ขึ้น-ตก) เพื่อส่งลูกค้า/ไปซ่อม ประชาชนทั่วไปนำมาใช้ไม่ได้" },
+  { q: "รถที่ค้างชำระภาษีประจำปีติดต่อกันครบกี่ปี จะถูกระงับทะเบียน?", choices: ["1 ปี", "2 ปี", "3 ปี", "5 ปี"], answer: 2, cat: "พ.ร.บ. รถยนต์", explain: "ค้างชำระภาษีครบ 3 ปีติดต่อกัน ทะเบียนรถถูกระงับ ต้องเสียเงินเพิ่ม 1% ต่อเดือนของภาษีที่ค้าง" },
+  { q: "รถยนต์ต้องตรวจสภาพก่อนเสียภาษีเมื่อมีอายุใช้งานครบกี่ปี?", choices: ["3 ปี", "5 ปี", "7 ปี", "10 ปี"], answer: 2, cat: "พ.ร.บ. รถยนต์", explain: "รถยนต์ต้องตรวจสภาพเมื่อมีอายุครบ 7 ปีนับแต่วันจดทะเบียนครั้งแรก (รถจักรยานยนต์ครบ 5 ปี)" },
+  { q: "ผู้หัดขับรถยนต์ต้องมีผู้ควบคุมที่ได้รับใบอนุญาตขับรถมาแล้วไม่น้อยกว่ากี่ปี?", choices: ["1 ปี", "2 ปี", "3 ปี", "5 ปี"], answer: 2, cat: "พ.ร.บ. รถยนต์", explain: "ผู้ควบคุมต้องมีใบขับขี่มาแล้วไม่น้อยกว่า 3 ปี และต้องอยู่ควบคุมในรถด้วย" },
+  { q: "ขับรถโดยไม่มีใบขับขี่ มีโทษอย่างไร?", choices: ["ตักเตือน", "ปรับไม่เกิน 500 บาท", "จำคุกไม่เกิน 1 เดือน หรือปรับไม่เกิน 1,000 บาท", "จำคุกไม่เกิน 3 เดือน"], answer: 2, cat: "พ.ร.บ. รถยนต์", explain: "ขับโดยไม่มีใบขับขี่: จำคุกไม่เกิน 1 เดือน หรือปรับไม่เกิน 1,000 บาท หรือทั้งจำทั้งปรับ" },
+  { q: "ขับรถโดยไม่แสดงใบขับขี่หรือสำเนาคู่มือจดทะเบียน มีโทษอย่างไร?", choices: ["ไม่มีโทษ", "ปรับไม่เกิน 1,000 บาท", "ปรับไม่เกิน 2,000 บาท", "จำคุก 1 เดือน"], answer: 1, cat: "พ.ร.บ. รถยนต์", explain: "ไม่แสดงใบขับขี่/สำเนาคู่มือจดทะเบียน ปรับไม่เกิน 1,000 บาท" },
+
+  // === ความเร็ว ===
+  { q: "รถยนต์ทั่วไปในเขตกรุงเทพฯ/เทศบาล ใช้ความเร็วได้ไม่เกินเท่าใด?", choices: ["60 กม./ชม.", "80 กม./ชม.", "90 กม./ชม.", "100 กม./ชม."], answer: 1, cat: "ความเร็ว", explain: "พ.ร.บ.จราจรทางบก กำหนดรถยนต์ทั่วไปในเขตเมือง ไม่เกิน 80 กม./ชม. นอกเขตไม่เกิน 90 กม./ชม." },
+  { q: "รถยนต์ทั่วไปนอกเขตเมือง (ถนนปกติ) ใช้ความเร็วได้ไม่เกินเท่าใด?", choices: ["80 กม./ชม.", "90 กม./ชม.", "100 กม./ชม.", "120 กม./ชม."], answer: 1, cat: "ความเร็ว", explain: "นอกเขตกรุงเทพฯ/เมืองพัทยา/เทศบาล รถยนต์ทั่วไปใช้ได้ไม่เกิน 90 กม./ชม." },
+  { q: "บนทางหลวงพิเศษ (มอเตอร์เวย์ 7 และ 9) รถยนต์ทั่วไปใช้ความเร็วสูงสุดเท่าใด?", choices: ["90 กม./ชม.", "100 กม./ชม.", "120 กม./ชม.", "140 กม./ชม."], answer: 2, cat: "ความเร็ว", explain: "ทางหลวงพิเศษหมายเลข 7 (กรุงเทพฯ-พัทยา) และ 9 (วงแหวนรอบนอก) รถยนต์ทั่วไปไม่เกิน 120 กม./ชม." },
+  { q: "รถบรรทุกหนักเกิน 1,200 กก. ในเขตเมือง ใช้ความเร็วไม่เกินเท่าใด?", choices: ["60 กม./ชม.", "80 กม./ชม.", "90 กม./ชม.", "120 กม./ชม."], answer: 0, cat: "ความเร็ว", explain: "รถบรรทุกหนักเกิน 1,200 กก. ในเขตเมืองไม่เกิน 60 กม./ชม. นอกเขตไม่เกิน 80 กม./ชม." },
+  { q: "เมื่อเจอป้ายกำหนดความเร็วต่ำกว่าที่กฎหมายกำหนด ควรปฏิบัติอย่างไร?", choices: ["ใช้ความเร็วตามกฎหมายได้", "ใช้ความเร็วตามที่ป้ายกำหนด (ต่ำกว่าได้)", "ไม่ต้องสนใจป้าย", "ใช้ความเร็วเฉลี่ย"], answer: 1, cat: "ความเร็ว", explain: "ป้ายจำกัดความเร็วมีผลใช้บังคับสูงกว่ากฎหมายทั่วไป ต้องปฏิบัติตามป้ายเสมอ" },
+
+  // === สัญญาณจราจร ===
+  { q: "สัญญาณไฟจราจรสีเหลืองหมายถึงอะไร?", choices: ["หยุดทันที", "เตรียมหยุด เว้นแต่ได้เลยเส้นหยุดไปแล้ว", "ขับต่อไปได้", "เลี้ยวได้ทุกทิศ"], answer: 1, cat: "สัญญาณจราจร", explain: "ไฟเหลือง = เตรียมหยุดก่อนเส้นหยุด แต่ถ้าเลยเส้นไปแล้วให้ขับผ่านด้วยความระมัดระวัง" },
+  { q: "เมื่อเจอสัญญาณไฟแดง ต้องปฏิบัติอย่างไร?", choices: ["หยุดรถหลังเส้นหยุด", "ชะลอแล้วเลี้ยวซ้ายได้", "หยุดเฉพาะมีรถสวน", "ขับช้าๆ ผ่านไป"], answer: 0, cat: "สัญญาณจราจร", explain: "ไฟแดงต้องหยุดหลังเส้นหยุดเสมอ เลี้ยวซ้ายผ่านแดงได้เฉพาะเมื่อมีป้าย 'เลี้ยวซ้ายผ่านตลอด'" },
+  { q: "สัญญาณไฟกระพริบสีแดงหมายถึงอะไร?", choices: ["ขับไปได้ปกติ", "ให้ผู้ขับขี่หยุดรถก่อน แล้วจึงขับผ่านไปด้วยความระมัดระวัง", "ห้ามเข้าโดยเด็ดขาด", "ไฟเสีย ไม่ต้องสนใจ"], answer: 1, cat: "สัญญาณจราจร", explain: "ไฟกระพริบแดง = หยุดก่อน แล้วจึงขับผ่าน (เหมือนป้ายหยุด) ไฟกระพริบเหลือง = ชะลอความเร็ว" },
+  { q: "เมื่อพนักงานเจ้าหน้าที่เป่านกหวีดยาว 1 ครั้ง หมายถึงอะไร?", choices: ["ขับผ่านไปได้", "หยุดรถทันที", "เลี้ยวซ้ายได้", "เลี้ยวขวาได้"], answer: 1, cat: "สัญญาณจราจร", explain: "นกหวีดยาว 1 ครั้ง = หยุดทันที | นกหวีดสั้น 2 ครั้งติดต่อกัน = ผ่านไปได้" },
+  { q: "หากสัญญาณมือของเจ้าพนักงานขัดกับสัญญาณไฟจราจร ต้องทำอย่างไร?", choices: ["ทำตามไฟจราจร", "ทำตามเจ้าพนักงาน", "เลือกทำอะไรก็ได้", "หยุดรถรอถาม"], answer: 1, cat: "สัญญาณจราจร", explain: "ต้องปฏิบัติตามสัญญาณของเจ้าพนักงานเสมอ เพราะมีอำนาจบังคับเหนือสัญญาณไฟในขณะนั้น" },
+
+  // === เครื่องหมายผิวทาง ===
+  { q: "เส้นทึบสีเหลือง 2 เส้นคู่กลางถนนหมายถึง?", choices: ["แซงได้ทั้งสองฝั่ง", "แบ่งทิศทางการจราจร ห้ามแซง/ห้ามคร่อม", "แซงได้ฝั่งเดียว", "ช่องสำหรับรถฉุกเฉิน"], answer: 1, cat: "เครื่องหมายผิวทาง", explain: "เส้นทึบเหลืองคู่กลางถนนแบ่งทิศทางรถสวน ห้ามแซงและห้ามคร่อมเส้นทุกกรณี" },
+  { q: "เส้นประสีขาวบนถนนหมายถึง?", choices: ["ห้ามแซง", "แบ่งช่องจราจร เปลี่ยนเลน/แซงได้เมื่อปลอดภัย", "เส้นหยุด", "ทางข้ามคน"], answer: 1, cat: "เครื่องหมายผิวทาง", explain: "เส้นประขาวใช้แบ่งช่องทางทิศเดียวกัน สามารถเปลี่ยนเลน/แซงได้เมื่อมั่นใจว่าปลอดภัย" },
+  { q: "ทางม้าลาย (เส้นขาวดำสลับ) มีความหมายอย่างไร?", choices: ["ช่องจักรยาน", "ทางข้ามคนเดินเท้า ต้องหยุดให้คนข้าม", "ช่องจอดชั่วคราว", "ห้ามจอด"], answer: 1, cat: "เครื่องหมายผิวทาง", explain: "ทางม้าลายเป็นทางข้ามของคนเดินเท้า ผู้ขับขี่ต้องชะลอและหยุดให้คนข้ามก่อน" },
+
+  // === การขับขี่ปลอดภัย ===
+  { q: "ระยะห่างที่ปลอดภัยจากรถคันหน้าควรใช้หลักใด?", choices: ["1 เมตร", "กฎ 2 วินาที (ฝนตก/กลางคืนเพิ่มเป็น 3 วินาที)", "5 เมตร", "แค่ไม่ชนก็พอ"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "หลัก 2 วินาที: เมื่อรถหน้าผ่านจุดอ้างอิง นับ 1-2 วินาทีก่อนรถเราถึงจุดเดียวกัน ฝนตก/มืดเพิ่มเป็น 3 วินาที" },
+  { q: "ขณะฝนตกใหม่ๆ ถนนลื่นที่สุดในช่วงใด?", choices: ["10-15 นาทีแรก เพราะน้ำมัน/ฝุ่นลอยขึ้นผิวถนน", "หลังฝนตก 2 ชั่วโมง", "ช่วงฝนตกหนัก", "ตอนฝนหยุด"], answer: 0, cat: "การขับขี่ปลอดภัย", explain: "10-15 นาทีแรกหลังฝนตกลื่นที่สุด เพราะน้ำมัน/ฝุ่นสะสมลอยขึ้นผิวถนน ต้องลดความเร็วและเพิ่มระยะห่าง" },
+  { q: "การขับรถผ่านน้ำท่วมขังควรทำอย่างไร?", choices: ["ขับเร็วๆ เพื่อผ่านเร็ว", "ใช้เกียร์ต่ำ ความเร็วคงที่ และแตะเบรกเบาๆ หลังพ้น", "เหยียบคันเร่งแรง", "ปิดเครื่องแล้วเข็น"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "ขับช้าด้วยเกียร์ต่ำและความเร็วคงที่ หลังพ้นน้ำให้แตะเบรกเบาๆ หลายครั้งเพื่อไล่น้ำออกจากระบบเบรก" },
+  { q: "ถ้าเกิดเหตุฉุกเฉินและต้องเบรกกะทันหัน ควรทำอย่างไร?", choices: ["เหยียบเบรกแรงที่สุด แล้วค้างไว้", "เหยียบเบรกแรง จับพวงมาลัยให้มั่น มองทางหลบ", "บีบคลัตช์ก่อนเบรก", "หักหลบทันทีโดยไม่เบรก"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "เบรกฉุกเฉิน: เหยียบเบรกเต็มแรง (รถ ABS จัดการให้) จับพวงมาลัยสองมือ มองจุดที่จะหลบ ห้ามหักพวงมาลัยแรงๆ" },
+  { q: "การเลี้ยวที่ปลอดภัยควรทำอย่างไร?", choices: ["เลี้ยวเร็วๆ เพื่อไม่กีดขวาง", "ชะลอก่อนเลี้ยว เปิดไฟเลี้ยว ตรวจกระจก ตรวจจุดบอด", "เลี้ยวโดยไม่เปิดไฟถ้าไม่มีรถ", "บีบแตรก่อนเลี้ยว"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "เลี้ยวปลอดภัย: ชะลอ, เปิดไฟเลี้ยวล่วงหน้า 30 ม., ตรวจกระจก+จุดบอด, เข้าช่องให้ถูก, เลี้ยวนุ่มนวล" },
+  { q: "การให้สัญญาณไฟเลี้ยวต้องเปิดก่อนเลี้ยวอย่างน้อยกี่เมตร?", choices: ["10 เมตร", "20 เมตร", "30 เมตร", "50 เมตร"], answer: 2, cat: "การขับขี่ปลอดภัย", explain: "ต้องเปิดไฟเลี้ยวก่อนถึงจุดเลี้ยวอย่างน้อย 30 เมตร เพื่อเตือนรถคันหลัง/รถสวน" },
+  { q: "เมื่อรถเสียกลางทาง ต้องแสดงสัญญาณเตือนในระยะไม่น้อยกว่าเท่าใด?", choices: ["50 เมตร", "100 เมตร", "150 เมตร", "200 เมตร"], answer: 2, cat: "การขับขี่ปลอดภัย", explain: "ตาม พ.ร.บ.ทางหลวง ต้องแสดงเครื่องหมาย/สัญญาณให้ผู้อื่นเห็นได้ชัดในระยะไม่น้อยกว่า 150 เมตร" },
+  { q: "การแซงที่ถูกต้องตามกฎหมายต้องแซงทางด้านใด?", choices: ["ด้านซ้าย", "ด้านขวา (ยกเว้นกรณีพิเศษ)", "ด้านไหนก็ได้", "ด้านที่ว่าง"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "การแซงต้องแซงด้านขวาเสมอ ยกเว้น: 1) คันหน้ากำลังเลี้ยวขวา 2) ถนนที่แบ่งช่องทิศเดียวกัน 2 ช่องขึ้นไป" },
+  { q: "ก่อนแซงรถคันหน้า ต้องตรวจสอบอะไรบ้าง?", choices: ["เฉพาะกระจกหลัง", "กระจก จุดบอด ไฟเลี้ยว ระยะ/ความเร็วรถสวน", "แค่เปิดไฟเลี้ยว", "บีบแตรเตือนอย่างเดียว"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "ขั้นตอนแซง: ตรวจกระจก → ตรวจจุดบอด → เปิดไฟเลี้ยว → ประเมินระยะ/ความเร็วรถสวน → แซงเสร็จเร็วและปลอดภัย" },
+  { q: "การเปิดไฟหน้ารถยนต์ควรเปิดเมื่อใด?", choices: ["เฉพาะกลางคืน", "กลางคืน ฝน หมอก อุโมงค์ ทัศนวิสัยไม่ดี", "เฉพาะเมื่อมีรถสวน", "เมื่อจำเป็นจริงๆ"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "กฎหมายบังคับเปิดไฟหน้า-ไฟท้าย: เวลากลางคืน, ในอุโมงค์, เมื่อฝน/หมอก/ทัศนวิสัยไม่ดี" },
+  { q: "การใช้ไฟสูง (High Beam) ที่ถูกต้องคือ?", choices: ["ใช้ตลอดเวลา", "ใช้เฉพาะถนนมืดที่ไม่มีรถสวน ลดเป็นไฟต่ำเมื่อเจอรถสวน", "ใช้ในเมือง", "ใช้เมื่อเจอรถสวน"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "ไฟสูงใช้ได้เมื่อถนนมืดและไม่มีรถสวน ต้องลดเป็นไฟต่ำทันทีเมื่อเจอรถสวนหรือตามคันหน้าใกล้ๆ" },
+  { q: "การขับในอุโมงค์ต้องปฏิบัติอย่างไร?", choices: ["ปิดไฟเพื่อประหยัด", "เปิดไฟหน้า ไม่เปลี่ยนช่อง ไม่แซง เว้นระยะห่าง", "ขับเร็วเพื่อออกเร็ว", "บีบแตรตลอดทาง"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "ในอุโมงค์: เปิดไฟหน้า (บังคับกฎหมาย), รักษาระยะห่าง, ไม่เปลี่ยนช่อง/แซง, ไม่หยุดในอุโมงค์" },
+
+  // === เมาแล้วขับ ===
+  { q: "ผู้ขับขี่มีปริมาณแอลกอฮอล์ในเลือดเกินเท่าใดถือว่าเมาแล้วขับ (ผู้ใหญ่ทั่วไป)?", choices: ["20 มก.%", "50 มก.%", "80 มก.%", "100 มก.%"], answer: 1, cat: "เมาแล้วขับ", explain: "ผู้ใหญ่ทั่วไปเกิน 50 มก.% ถือว่าเมาแล้วขับ | ผู้ขับขี่อายุต่ำกว่า 20 ปี/ใบชั่วคราว เกณฑ์คือ 20 มก.%" },
+  { q: "เมาแล้วขับครั้งแรก โทษเป็นอย่างไร?", choices: ["ตักเตือน", "จำคุกไม่เกิน 1 ปี ปรับ 5,000-20,000 บาท พักใบขับขี่ไม่น้อยกว่า 6 เดือน", "ปรับ 500 บาท", "ยึดรถ 1 เดือน"], answer: 1, cat: "เมาแล้วขับ", explain: "เมาแล้วขับครั้งแรก: จำคุกไม่เกิน 1 ปี หรือปรับ 5,000-20,000 บาท หรือทั้งจำทั้งปรับ พักใบขับขี่ขั้นต่ำ 6 เดือน" },
+  { q: "การใช้โทรศัพท์มือถือขณะขับรถยนต์ทำได้เมื่อใด?", choices: ["ทำได้ทุกกรณี", "รับสายสั้นๆ ได้", "ใช้ได้เฉพาะอุปกรณ์แฮนด์ฟรี/บลูทูธ", "ห้ามทุกกรณี"], answer: 2, cat: "กฎจราจร", explain: "ใช้ได้เฉพาะแฮนด์ฟรี/บลูทูธ ห้ามถือโทรศัพท์ขณะขับ ผู้ฝ่าฝืนปรับ 400-1,000 บาท" },
+
+  // === เข็มขัดนิรภัย ===
+  { q: "การคาดเข็มขัดนิรภัยในรถยนต์ ผู้ใดต้องคาดบ้าง?", choices: ["เฉพาะคนขับ", "คนขับและผู้โดยสารด้านหน้า", "คนขับและผู้โดยสารทุกที่นั่ง (กฎหมายใหม่)", "ไม่บังคับ"], answer: 2, cat: "เข็มขัดนิรภัย", explain: "กฎหมายใหม่ (พ.ร.บ. จราจร 2565) บังคับทุกคนในรถต้องคาดเข็มขัด รวมถึงเบาะหลัง" },
+  { q: "เด็กอายุต่ำกว่า 6 ปี นั่งรถยนต์ต้องใช้อุปกรณ์ใด?", choices: ["ไม่ต้องใช้อะไร", "ที่นั่งนิรภัยสำหรับเด็ก (คาร์ซีท)", "นั่งตักผู้ใหญ่", "เบาะรอง"], answer: 1, cat: "เข็มขัดนิรภัย", explain: "เด็กอายุต่ำกว่า 6 ปี ต้องใช้ที่นั่งนิรภัยเด็ก (คาร์ซีท) ฝ่าฝืนปรับไม่เกิน 2,000 บาท" },
+  { q: "การไม่คาดเข็มขัดนิรภัยมีโทษอย่างไร?", choices: ["ไม่มีโทษ", "ปรับไม่เกิน 2,000 บาท", "จำคุก", "ตักเตือน"], answer: 1, cat: "เข็มขัดนิรภัย", explain: "ไม่คาดเข็มขัดนิรภัยปรับไม่เกิน 2,000 บาท ทั้งผู้ขับและผู้โดยสาร" },
+
+  // === การบำรุงรักษา ===
+  { q: "ควรตรวจสภาพรถก่อนออกเดินทางในส่วนใดบ้าง?", choices: ["เฉพาะน้ำมัน", "BE-WAGON: ลมยาง น้ำ น้ำมัน แบตเตอรี่ ไฟ เบรก กระจก", "เฉพาะเบรก", "เฉพาะแบต"], answer: 1, cat: "การบำรุงรักษา", explain: "ตรวจ BE-WAGON: Brake(เบรก), Engine(เครื่อง), Water(น้ำหล่อเย็น), Air(ลมยาง), Gas(น้ำมัน), Oil(น้ำมันเครื่อง)" },
+  { q: "ลมยางรถยนต์ที่ถูกต้องควรตรวจเมื่อใด?", choices: ["ตอนยางร้อนหลังขับ", "ตอนยางเย็น (ก่อนขับ หรือจอดทิ้งเกิน 3 ชม.)", "เมื่อไหร่ก็ได้", "ไม่ต้องตรวจ"], answer: 1, cat: "การบำรุงรักษา", explain: "ตรวจลมยางตอนยางเย็นเท่านั้น (ยางร้อนลมขยายตัวทำให้ค่าสูงกว่าจริง)" },
+  { q: "ดอกยางรถยนต์ที่สึกจนเหลือน้อยกว่าเท่าใด ถือว่าไม่ปลอดภัย?", choices: ["0.5 มม.", "1.6 มม.", "3 มม.", "5 มม."], answer: 1, cat: "การบำรุงรักษา", explain: "ดอกยางต้องเหลืออย่างน้อย 1.6 มม. ต่ำกว่านี้ผิดกฎหมาย+ลื่นง่ายในฝน" },
+  { q: "น้ำมันเครื่องควรเปลี่ยนทุกๆ กี่กิโลเมตร (รถทั่วไป)?", choices: ["1,000 กม.", "5,000-10,000 กม. (ตามผู้ผลิตกำหนด)", "50,000 กม.", "ไม่ต้องเปลี่ยน"], answer: 1, cat: "การบำรุงรักษา", explain: "น้ำมันเครื่องเปลี่ยนทุก 5,000-10,000 กม. ตามประเภทน้ำมัน น้ำมันสังเคราะห์ยาวกว่า" },
+  { q: "อาการที่บอกว่าเบรกมีปัญหาคืออะไร?", choices: ["เสียงจี๊ด คันเบรกนุ่ม ระยะเบรกไกล", "เครื่องยนต์ดัง", "ยางร้อน", "ไฟสว่าง"], answer: 0, cat: "การบำรุงรักษา", explain: "สัญญาณเบรกเสีย: เสียงจี๊ด(ผ้าเบรกหมด), คันเบรกนุ่ม(น้ำมันรั่ว), ระยะเบรกไกล ต้องตรวจทันที" },
+
+  // === เหตุฉุกเฉิน ===
+  { q: "เบอร์โทรหน่วยปฏิบัติการแพทย์ฉุกเฉินคือเบอร์อะไร?", choices: ["191", "1669", "1554", "199"], answer: 1, cat: "เหตุฉุกเฉิน", explain: "1669 = สถาบันการแพทย์ฉุกเฉินแห่งชาติ | 191 = ตำรวจ | 199 = ดับเพลิง" },
+  { q: "เมื่อประสบอุบัติเหตุ สิ่งแรกที่ต้องทำคือ?", choices: ["หนีทันที", "หยุดรถ ดูแลผู้บาดเจ็บ แจ้ง 1669 และตำรวจ", "ถ่ายรูปก่อน", "โยนความผิดคู่กรณี"], answer: 1, cat: "เหตุฉุกเฉิน", explain: "ต้อง: 1) หยุดรถ 2) ดูแลผู้บาดเจ็บ+โทร 1669 3) แจ้ง 191/ประกัน 4) เก็บหลักฐาน การหนีมีโทษหนัก" },
+  { q: "ผู้บาดเจ็บหมดสติ ควรเคลื่อนย้ายทันทีหรือไม่?", choices: ["ย้ายทันที", "ไม่ควรย้าย ยกเว้นอยู่ในที่อันตราย รอทีมกู้ชีพ", "ย้ายไปบ้าน", "ย้ายเข้ารถตัวเอง"], answer: 1, cat: "ปฐมพยาบาล", explain: "อย่าเคลื่อนย้ายทันที อาจเพิ่มความรุนแรง (โดยเฉพาะคอ/หลัง) ยกเว้นที่อันตราย (ไฟไหม้) รอทีมกู้ชีพ" },
+  { q: "ถ้าผู้บาดเจ็บมีเลือดออกมาก ควรทำอย่างไร?", choices: ["ขันชะเนาะแน่น", "กดห้ามเลือดด้วยผ้าสะอาด ยกส่วนบาดเจ็บให้สูงกว่าหัวใจ", "ล้างน้ำเปล่า", "ไม่ต้องทำอะไร"], answer: 1, cat: "ปฐมพยาบาล", explain: "ห้ามเลือด: กดด้วยผ้าสะอาดที่บาดแผล 10-15 นาที ยกส่วนนั้นสูงกว่าหัวใจ ไม่ขันชะเนาะเว้นแต่จำเป็น" },
+  { q: "ถ้ารถไฟไหม้ขณะขับ ควรทำอย่างไร?", choices: ["เปิดฝากระโปรงทันที", "จอดข้างทาง ดับเครื่อง ออกจากรถ ใช้ถังดับเพลิงถ้ามี", "ขับต่อไปหาปั๊ม", "เทน้ำใส่"], answer: 1, cat: "เหตุฉุกเฉิน", explain: "ไฟไหม้รถ: จอดพ้นจราจร, ดับเครื่อง, ทุกคนออกจากรถ, อย่าเปิดฝากระโปรงเต็มที่, โทร 199" },
+
+  // === มารยาท ===
+  { q: "เมื่อเจอรถฉุกเฉิน (พยาบาล/ดับเพลิง) เปิดสัญญาณต้องทำอย่างไร?", choices: ["ขับต่อปกติ", "หลบชิดซ้าย/ลดความเร็ว/หยุด ให้ผ่านไปก่อน", "ตามไปด้วย", "เปิดไฟเลี้ยว"], answer: 1, cat: "มารยาทการขับขี่", explain: "รถฉุกเฉินเปิดสัญญาณ ต้องหลบชิดซ้าย/ลดความเร็ว/หยุด ให้ผ่านก่อน ผู้ฝ่าฝืนมีโทษปรับ" },
+  { q: "การจอดรถบนไหล่ทางขณะรถเสีย ต้องปฏิบัติอย่างไร?", choices: ["ปล่อยทิ้ง", "เปิดไฟฉุกเฉิน วางสามเหลี่ยมสะท้อนแสงไว้ด้านหลังรถ", "ยืนกลางถนน", "รอรถมาเอง"], answer: 1, cat: "เหตุฉุกเฉิน", explain: "รถเสีย: เข้าไหล่ทาง, เปิดไฟฉุกเฉิน, วางสามเหลี่ยมสะท้อนแสง 50-150 ม. ด้านหลัง, ผู้โดยสารออกฝั่งปลอดภัย" },
+  { q: "ในทางแยกไม่มีสัญญาณไฟ/ป้าย รถคันใดมีสิทธิ์ไปก่อน?", choices: ["คันที่เร็วกว่า", "คันที่มาจากทางขวาของผู้ขับ", "คันใหญ่", "คันซ้าย"], answer: 1, cat: "กฎจราจร", explain: "ทางแยกไม่มีสัญญาณ: รถจากทางขวามีสิทธิ์ก่อน แต่ถ้ามีป้ายให้ทาง/หยุด ต้องปฏิบัติตามป้าย" },
+  { q: "การขับรถผ่านโรงเรียน/ชุมชน ควรทำอย่างไร?", choices: ["ขับปกติ", "ลดความเร็ว ระวังเด็ก/คนเดินเท้าเป็นพิเศษ", "บีบแตรตลอด", "ขับเร็วเพื่อผ่านเร็ว"], answer: 1, cat: "มารยาทการขับขี่", explain: "เขตโรงเรียน/ชุมชน: ลดความเร็วตามป้าย, ระวังเด็ก/คนเดินเท้า, ไม่บีบแตรเว้นแต่จำเป็น" },
+  { q: "การใช้แตรรถยนต์ที่ถูกต้องคือ?", choices: ["ใช้เมื่อรถติด", "ใช้เตือนเฉพาะเมื่อจำเป็นเพื่อความปลอดภัย", "ใช้ทักทาย", "ใช้แทนไฟเลี้ยว"], answer: 1, cat: "มารยาทการขับขี่", explain: "แตรใช้เตือนเพื่อความปลอดภัยเท่านั้น ห้ามใช้ในโรงพยาบาล/โรงเรียน/สถานที่ราชการ" },
+
+  // === ใบขับขี่ ===
+  { q: "ใบขับขี่รถยนต์ชั่วคราว (ใบใหม่) มีอายุกี่ปี?", choices: ["1 ปี", "2 ปี", "5 ปี", "ตลอดชีพ"], answer: 1, cat: "ใบขับขี่", explain: "ใบขับขี่ชั่วคราวอายุ 2 ปี เมื่อครบกำหนดขอต่อเป็นใบส่วนบุคคล (5 ปี)" },
+  { q: "ใบขับขี่ส่วนบุคคล (หลังใบชั่วคราวหมด) มีอายุกี่ปี?", choices: ["2 ปี", "3 ปี", "5 ปี", "10 ปี"], answer: 2, cat: "ใบขับขี่", explain: "ใบขับขี่ส่วนบุคคลอายุ 5 ปี ต้องต่อก่อนหมดอายุเพื่อไม่ต้องสอบใหม่" },
+  { q: "อายุขั้นต่ำในการขอใบขับขี่รถยนต์ส่วนบุคคลคือเท่าใด?", choices: ["15 ปีบริบูรณ์", "17 ปีบริบูรณ์", "18 ปีบริบูรณ์", "20 ปีบริบูรณ์"], answer: 2, cat: "ใบขับขี่", explain: "ขอใบขับขี่รถยนต์ต้อง 18 ปีบริบูรณ์ | รถจักรยานยนต์ 15 ปี (ไม่เกิน 110 ซีซี) | รถยนต์สาธารณะ 22 ปี" },
+  { q: "เอกสารที่ต้องพกขณะขับรถยนต์คือ?", choices: ["เฉพาะใบขับขี่", "ใบขับขี่ + สำเนาคู่มือจดทะเบียน", "เฉพาะป้ายภาษี", "ไม่ต้องพกอะไร"], answer: 1, cat: "ใบขับขี่", explain: "ต้องพก: ใบขับขี่ + สำเนาคู่มือจดทะเบียน ถ้าไม่แสดงปรับไม่เกิน 1,000 บาท" },
+
+  // === ประกัน ===
+  { q: "พ.ร.บ. (ประกันภัยภาคบังคับ) คุ้มครองอะไร?", choices: ["เฉพาะรถ", "การบาดเจ็บ/เสียชีวิตของผู้ประสบภัยจากรถ", "ทุกอย่าง", "ไม่คุ้มอะไร"], answer: 1, cat: "ประกันภัย", explain: "พ.ร.บ. คุ้มครองผู้ประสบภัยจากรถ (ผู้ขับ ผู้โดยสาร คนเดินถนน) ในส่วนบาดเจ็บ/เสียชีวิต ไม่รวมค่าซ่อมรถ" },
+  { q: "การต่อภาษีรถยนต์ (ป้ายวงกลม) ต้องทำทุกกี่ปี?", choices: ["6 เดือน", "1 ปี", "2 ปี", "5 ปี"], answer: 1, cat: "ประกันภัย", explain: "ต่อภาษีรถทุก 1 ปี พร้อม พ.ร.บ. ถ้าขาดต่อเกิน 3 ปี ทะเบียนระงับ" },
+  { q: "การชนแล้วหนี มีโทษอย่างไร?", choices: ["ตักเตือน", "จำคุกไม่เกิน 6 เดือน ปรับ 5,000-20,000 บาท หรือทั้งจำทั้งปรับ", "ปรับ 500 บาท", "ไม่มีโทษ"], answer: 1, cat: "กฎหมาย", explain: "ชนแล้วหนี: จำคุกไม่เกิน 6 เดือน หรือปรับ 5,000-20,000 บาท อาจเพิกถอนใบขับขี่" },
+
+  // === Eco Driving & เทคนิคอื่นๆ ===
+  { q: "การขับขี่แบบประหยัดน้ำมัน (Eco Driving) ควรทำอย่างไร?", choices: ["ขับเร็วเพื่อไปเร็ว", "ออกตัวนุ่ม ใช้ความเร็วคงที่ 80-100 กม./ชม. ไม่เร่ง-เบรกกะทันหัน", "ใช้ไฟสูงตลอด", "เหยียบคันเร่งสุดตลอด"], answer: 1, cat: "Eco Driving", explain: "Eco Driving: ออกตัวนุ่ม, ความเร็วคงที่ 80-100 กม./ชม., ไม่เร่ง-เบรกกะทันหัน, ปิดเครื่องเมื่อจอดนาน" },
+  { q: "การบรรทุกของหนักเกินจำเป็นส่งผลอย่างไร?", choices: ["รถวิ่งเร็วขึ้น", "สิ้นเปลืองน้ำมันเพิ่ม (ทุก 100 กก. เพิ่มประมาณ 3%)", "ประหยัดน้ำมัน", "ไม่มีผล"], answer: 1, cat: "Eco Driving", explain: "น้ำหนักเพิ่ม 100 กก. สิ้นเปลืองน้ำมันเพิ่มประมาณ 3% เอาของไม่จำเป็นออกช่วยประหยัด" },
+  { q: "'จุดบอด' (Blind Spot) ของรถยนต์อยู่ที่ใด?", choices: ["ด้านหน้ารถ", "บริเวณข้าง-หลังรถ ที่กระจกมองไม่เห็น", "ใต้รถ", "ในตัวรถ"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "จุดบอดอยู่ข้าง-หลังรถ กระจกมองไม่เห็น ต้องหันศีรษะดูก่อนเปลี่ยนเลน" },
+  { q: "เมื่อขับใกล้รถบรรทุกใหญ่ ควรทำอย่างไร?", choices: ["ขับประชิดเพื่อลดลม", "เว้นระยะ หลีกเลี่ยงจุดบอด ไม่ขับคู่ขนาน แซงให้พ้นเร็ว", "บีบแตรเตือน", "แซงทางซ้าย"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "รถใหญ่มีจุดบอดมาก/เบรกไม่ทัน ควรเว้นระยะ, ไม่อยู่ข้างๆ นาน, แซงให้พ้นเร็วและปลอดภัย" },
+  { q: "การจอดรถบนทางลาดชันต้องทำอย่างไร?", choices: ["ใส่เกียร์ว่าง", "ดึงเบรกมือ ใส่เกียร์ (ลง=ถอย ขึ้น=1) หมุนพวงมาลัยเข้าขอบทาง", "ปิดเครื่องทิ้ง", "ไม่ต้องทำอะไร"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "จอดลาดชัน: ดึงเบรกมือสุด, ใส่เกียร์ (ลง=R/ถอย, ขึ้น=1), หมุนพวงมาลัยเข้าขอบทาง ป้องกันรถไหล" },
+  { q: "การขับในหมอกหนาควรทำอย่างไร?", choices: ["เปิดไฟสูง", "เปิดไฟตัดหมอก/ไฟต่ำ ลดความเร็ว เว้นระยะห่างมากขึ้น", "ปิดไฟ", "บีบแตรตลอด"], answer: 1, cat: "การขับขี่ปลอดภัย", explain: "หมอกหนา: ใช้ไฟตัดหมอก/ไฟต่ำ (ไฟสูงสะท้อนทำให้มองไม่เห็น) ลดความเร็ว เว้นระยะมากขึ้น" }
 ];
 
 // ========================================
-// STATE
+// STATE & UTILITIES
 // ========================================
+let quizQuestions = [];
 let currentQ = 0;
-let answers = new Array(questions.length).fill(null);
-let answered = new Array(questions.length).fill(false);
+let answers = [];
+let answered = [];
+const QUIZ_SIZE = 50;
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function prepareQuestions() {
+  const shuffled = shuffleArray(QUESTION_BANK).slice(0, QUIZ_SIZE);
+  return shuffled.map(q => {
+    const indexed = q.choices.map((c, i) => ({ text: c, wasCorrect: i === q.answer }));
+    const shuffledChoices = shuffleArray(indexed);
+    const newAnswer = shuffledChoices.findIndex(c => c.wasCorrect);
+    return {
+      q: q.q,
+      sign: q.sign || null,
+      choices: shuffledChoices.map(c => c.text),
+      answer: newAnswer,
+      cat: q.cat,
+      explain: q.explain
+    };
+  });
+}
 
 // ========================================
-// RENDER
+// FLOW
 // ========================================
+function startQuiz() {
+  quizQuestions = prepareQuestions();
+  answers = new Array(QUIZ_SIZE).fill(null);
+  answered = new Array(QUIZ_SIZE).fill(false);
+  currentQ = 0;
+
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('quizContainer').classList.add('active');
+  document.getElementById('resultsArea').classList.remove('active');
+
+  renderQuestion();
+}
+
 function renderQuestion() {
-  const q = questions[currentQ];
+  const q = quizQuestions[currentQ];
   const area = document.getElementById('questionArea');
-
   const isAnswered = answered[currentQ];
   const userAnswer = answers[currentQ];
 
-  let choicesHTML = q.choices.map((choice, i) => {
+  const signHTML = q.sign && SIGNS[q.sign]
+    ? `<div class="sign-display">${SIGNS[q.sign]}</div>`
+    : '';
+
+  const choicesHTML = q.choices.map((choice, i) => {
     let cls = 'choice';
     if (isAnswered) {
       if (i === q.answer) cls += ' correct';
@@ -954,49 +575,31 @@ function renderQuestion() {
       else cls += ' dimmed';
     }
     const letter = ['ก', 'ข', 'ค', 'ง'][i];
-    return `
-      <button class="${cls}" ${isAnswered ? 'disabled' : ''} onclick="selectAnswer(${i})">
-        <span class="choice-letter">${letter}</span>
-        <span class="choice-text">${choice}</span>
-      </button>
-    `;
+    return `<button class="${cls}" ${isAnswered ? 'disabled' : ''} onclick="selectAnswer(${i})"><span class="choice-letter">${letter}</span><span class="choice-text">${choice}</span></button>`;
   }).join('');
 
-  let explanationHTML = '';
-  if (isAnswered) {
-    explanationHTML = `
-      <div class="explanation">
-        <strong>คำอธิบาย</strong>
-        ${q.explain}
-      </div>
-    `;
-  }
+  const explanationHTML = isAnswered
+    ? `<div class="explanation"><strong>คำอธิบาย</strong>${q.explain}</div>`
+    : '';
 
   area.innerHTML = `
     <div class="q-meta">
-      <div class="q-number">ข้อที่ <strong>${currentQ + 1}</strong> / ${questions.length}</div>
+      <div class="q-number">ข้อที่ <strong>${currentQ + 1}</strong> / ${QUIZ_SIZE}</div>
       <div class="q-category">${q.cat}</div>
     </div>
     <div class="question-text">${q.q}</div>
+    ${signHTML}
     <div class="choices">${choicesHTML}</div>
     ${explanationHTML}
   `;
 
-  // Update progress
   const answeredCount = answered.filter(a => a).length;
-  document.getElementById('progressFill').style.width = `${(answeredCount / questions.length) * 100}%`;
+  document.getElementById('progressFill').style.width = `${(answeredCount / QUIZ_SIZE) * 100}%`;
 
-  // Update buttons
   document.getElementById('prevBtn').disabled = currentQ === 0;
   const nextBtn = document.getElementById('nextBtn');
+  nextBtn.textContent = currentQ === QUIZ_SIZE - 1 ? 'ดูผลการทดสอบ 🏁' : 'ข้อถัดไป →';
 
-  if (currentQ === questions.length - 1) {
-    nextBtn.textContent = 'ดูผลการทดสอบ';
-  } else {
-    nextBtn.textContent = 'ข้อถัดไป →';
-  }
-
-  // Scroll to top of question smoothly
   document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -1008,7 +611,7 @@ function selectAnswer(index) {
 }
 
 function nextQuestion() {
-  if (currentQ < questions.length - 1) {
+  if (currentQ < QUIZ_SIZE - 1) {
     currentQ++;
     renderQuestion();
   } else {
@@ -1024,25 +627,26 @@ function prevQuestion() {
 }
 
 function showResults() {
-  document.getElementById('quizContainer').style.display = 'none';
+  document.getElementById('quizContainer').classList.remove('active');
+  document.getElementById('progressWrap').style.display = 'none';
   document.getElementById('resultsArea').classList.add('active');
 
   let correct = 0;
   answers.forEach((a, i) => {
-    if (a === questions[i].answer) correct++;
+    if (a === quizQuestions[i].answer) correct++;
   });
 
-  const wrong = questions.length - correct;
-  const percent = Math.round((correct / questions.length) * 100);
+  const wrong = QUIZ_SIZE - correct;
+  const percent = Math.round((correct / QUIZ_SIZE) * 100);
 
   document.getElementById('scorePercent').textContent = percent + '%';
-  document.getElementById('scoreFraction').textContent = `${correct} / ${questions.length} ข้อ`;
+  document.getElementById('scoreFraction').textContent = `${correct} / ${QUIZ_SIZE} ข้อ`;
   document.getElementById('correctCount').textContent = correct;
   document.getElementById('wrongCount').textContent = wrong;
 
   const status = document.getElementById('resultStatus');
   if (percent >= 90) {
-    status.textContent = '🎉 ผ่าน! คุณพร้อมสอบใบขับขี่แล้ว';
+    status.textContent = '🎉 ผ่าน! พร้อมสอบใบขับขี่จริงแล้ว';
     status.className = 'result-status pass';
   } else if (percent >= 70) {
     status.textContent = '⚠️ ใกล้เคียง - ทบทวนเพิ่มอีกนิด';
@@ -1052,21 +656,48 @@ function showResults() {
     status.className = 'result-status fail';
   }
 
-  // Progress bar full
-  document.getElementById('progressFill').style.width = '100%';
+  const reviewList = document.getElementById('reviewList');
+  const wrongQuestions = quizQuestions
+    .map((q, i) => ({ q, i, userAns: answers[i], correct: answers[i] === q.answer }))
+    .filter(x => !x.correct);
+
+  if (wrongQuestions.length === 0) {
+    reviewList.innerHTML = `<div style="padding: 1rem; text-align: center; color: var(--green); font-weight: 600;">🏆 ตอบถูกทุกข้อ!</div>`;
+  } else {
+    reviewList.innerHTML = wrongQuestions.map(({ q, i, userAns }) => {
+      const signHTML = q.sign && SIGNS[q.sign] ? `<div class="sign-mini">${SIGNS[q.sign]}</div>` : '';
+      return `
+        <div class="review-item">
+          <div class="q-num">ข้อ ${i + 1} • ${q.cat}</div>
+          <div class="q-txt">${q.q}</div>
+          ${signHTML}
+          <div class="your-ans">❌ คุณตอบ: ${q.choices[userAns] || '-'}</div>
+          <div class="right-ans">✅ คำตอบที่ถูก: ${q.choices[q.answer]}</div>
+          <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--muted);">💡 ${q.explain}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  const reviewBtn = document.getElementById('reviewBtn');
+  reviewBtn.textContent = `📋 ดูข้อที่ตอบผิด (${wrong} ข้อ)`;
+  reviewBtn.style.display = wrong > 0 ? 'block' : 'none';
+}
+
+function toggleReview() {
+  const list = document.getElementById('reviewList');
+  list.classList.toggle('show');
+  const btn = document.getElementById('reviewBtn');
+  const wrong = QUIZ_SIZE - parseInt(document.getElementById('correctCount').textContent);
+  btn.textContent = list.classList.contains('show') ? `⬆️ ซ่อนรายการ` : `📋 ดูข้อที่ตอบผิด (${wrong} ข้อ)`;
 }
 
 function restart() {
-  currentQ = 0;
-  answers = new Array(questions.length).fill(null);
-  answered = new Array(questions.length).fill(false);
   document.getElementById('resultsArea').classList.remove('active');
-  document.getElementById('quizContainer').style.display = 'block';
-  renderQuestion();
+  document.getElementById('startScreen').style.display = 'block';
+  document.getElementById('reviewList').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// Init
-renderQuestion();
 </script>
 
 </body>
